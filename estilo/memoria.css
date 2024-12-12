@@ -18,7 +18,7 @@ article h3 {
     border-radius: 1%;
     background: #454545;
     backface-visibility: hidden;
-    size: 9em;
+    font-size: 1vw; 
 }
 article img {
     transform: rotateY(180deg);
