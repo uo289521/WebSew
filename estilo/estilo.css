@@ -1,0 +1,108 @@
+/* David Rodriguez Chanca UO289521 */
+/*Colores: 
+    Dorado : BD9242
+    Cal : f4ebd0
+    VerdeOscuro: 122620
+    Morado: 000075
+    AzulTurquesa : 5DE2E7
+
+
+/*Especificacion 001 */
+body{
+    font-family: Verdana,Geneva,sans-serif;
+    background-color:  #E5DECD;
+    color: #080808; 
+}
+/*Especificacion 001 */
+header{
+    background-color: #D1A05C ;
+    /* color heredado de body*/
+    padding: 1%;
+    gap: 45%
+}
+
+/*Especificacion 001 */
+h1{
+    color: #122620;
+    /*background-color heredado de body*/
+    text-decoration: none;
+   
+}
+/*Especificacion 001 */
+nav{
+    color: #BD9242;
+     /*background-color heredado de body*/ 
+     padding: 1%
+}
+
+/*Especificacion 002 */
+nav a{
+    color: #000075;
+     /*background-color heredado de body*/
+     padding: 1.1em;
+}
+/*Especificacion 001 */
+table{
+    border: 0.1rem SOLID #000075; 
+}
+
+/*Especificacion 002 */
+header a{
+    /*background-color heredado de body*/
+    color: #122620;
+    text-decoration: none;
+}
+
+/*Escificacion 011*/
+a:hover{
+    font-weight: bolder;
+}
+/*Escificacion 001*/
+ul{
+    list-style-type: "---> " ;
+    list-style-position: outside;
+}
+/*Escificacion 001*/
+ol{
+    list-style-position: inside;
+}
+/*Especificacion 002 */
+ol ul{
+    /*background-color heredado de body*/
+    color:#762D2D
+}
+/*Especificacion 002 */
+dl dt{
+     font-weight: 400;
+}
+/*Especificacion 002 */
+dl dd{
+    font-style:italic;
+    /*background-color heredado de body*/
+    color:#454545
+}
+/*Especificacion 001 */
+caption{
+    font-size: large;
+
+}
+/*Especificacion 001 */
+video{
+    width: 100%;
+    height: auto;
+}
+/*Especificacion 010 */
+.active{
+    font-size: x-large;
+    font-weight: 600;
+    font-style:oblique; 
+}
+
+@media(max-width:465px){
+    header + p {
+        display: none
+    }
+}
+
+
+

@@ -1,0 +1,91 @@
+/*Especificacion 001 */
+header {
+    display: flex;
+    flex-direction: row;
+}
+
+/*Especificacion 002 */
+main+div {
+    width: 100%;
+    height: 50vw;
+}
+
+script+div {
+    width: 100%;
+    height: 50vw;
+}
+main > article +input {
+    margin: 1% 0%;
+}
+
+main+div+section {
+    width: 100%;
+    max-width: 100vh;
+    height: 70vh;
+    position: relative;
+    overflow: hidden;
+    border-radius: 1em;
+    margin: auto; 
+}
+
+main+div+section>h3 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5em;
+    font-size: 2em;
+}
+
+main+div+section>img {
+    width: 100%;
+    max-width: 100vh;
+    height: 60vh;
+    position: absolute;
+    transition: all 0.5s;
+    object-fit: cover;
+    border-radius: 0.5em;
+}
+
+main+div+section>button {
+    position: absolute;
+    width: 2em;
+    height: 2em;
+    padding: 0.5em;
+    border: none;
+    border-radius: 50%;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+main+div+section>button:active {
+    transform: scale(1.1);
+}
+
+main+div+section>button:nth-of-type(2) {
+    top: 50%;
+    left: 2%;
+}
+
+main+div+section>button:nth-of-type(1) {
+    top: 50%;
+    right: 2%;
+}
+
+div+section+script+ article{
+    margin: auto; 
+}
+div+section+script+ article > h3{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5em;  
+    font-size: 2em;
+}
+div+section+script+ article > p{
+    text-align:center; 
+    font-size: 1.1em; 
+}

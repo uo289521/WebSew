@@ -1,0 +1,42 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 8%;
+    text-align: center;
+    align-items: center;
+}
+
+article > img {
+    width: 10%;
+    height: auto;
+}
+
+article > h3 {
+    text-align: center;
+    font-size: 2em;
+    background-color: #fff;
+    padding: 1%;
+    margin: 1%;
+}
+article > p{
+    color: #fffa; 
+    padding-bottom: 1%;
+}
+
+
+h2 {
+    text-align: center;
+    
+}
+
+article {
+    width: 80%;
+    margin-bottom: 20px;
+    background-color: #000a;
+    border-radius: 1%;
+    box-shadow: 1em 1em 1em rgba(0,0,0,.3);
+}
+
+img:hover {
+    width: 15%;
+}

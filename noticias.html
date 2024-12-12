@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Formula1-Noticias</title>
+    <meta name="author" content="David Rodriguez Chanca"/>
+    <meta name ="description" content="Meteorologia de la formula1"/>
+    <meta name ="keywords" content="F1 Formula1 FormulaUno Formula1"/>
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="estilo/article-element.css"/>
+
+
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type = "image/vnd.microsoft.icon"/>
+    
+</head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <h1> <a href="index.html" title="Inicio"> F1 Desktop </a> </h1>
+        <nav>
+            <a href="index.html" title="index">Inicio</a>
+            <a href="piloto.html" title="piloto">Piloto</a>
+            <a class= "active" href="noticias.html" title="noticias">Noticias</a>
+            <a href="calendario.html" title="calendario">Calendario</a>
+            <a href="meteorologia.html" title="meteorologia">Meteorologia</a>
+            <a href="circuito.html" title="circuito">Circuito</a>
+            <a href="viajes.php" title="viajes">Viajes</a>
+            <a href="juegos.html" title="juegos">Juegos</a>
+        </nav>
+        
+    </header>
+    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> Noticias</p>
+    <h2>Noticias sobre la Formula1</h2>
+
+    <script src = "js/noticias.js"></script>
+    <label for="acessibildadLighthouse">Sube un archivo:</label>
+<input type="file" onchange="noti.readInputFile(this.files)" id="acessibildadLighthouse">
+
+    <main>
+
+    </main>
+
+    <section>
+        <h3>Añadir Nueva Noticia</h3>
+        <p>Título:</p>
+        <input type="text" name="titulo" placeholder="Título de la noticia" >   
+        <p>Autor:</p>
+        <input type="text" name="autor" placeholder="Autor de la noticia">
+        <p>Cuerpo:</p>
+        <input type="text" name="cuerpo" placeholder="Cuerpo de la noticia" >   
+    
+        <button onclick="noti.añadirNoticia()">Añadir Noticia</button>
+    </section>
+</body>
+
+</html>

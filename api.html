@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Formula1-Juegos</title>
+    <meta name="author" content="David Rodriguez Chanca"/>
+    <meta name ="description" content="Meteorologia de la formula1"/>
+    <meta name ="keywords" content="F1 Formula1 FormulaUno Juegos"/>
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type = "image/vnd.microsoft.icon"/>
+    
+</head>
+<body>
+    
+    <header>
+        
+        <h1> <a href="index.html" title="Inicio"> F1 Desktop </a> </h1>
+        <nav>
+            <a href="index.html" title="index">Inicio</a>
+            <a href="piloto.html" title="piloto">Piloto</a>
+            <a href="noticias.html" title="noticias">Noticias</a>
+            <a href="calendario.html" title="calendario">Calendario</a>
+            <a href="meteorologia.html" title="meteorologia">Meteorologia</a>
+            <a href="circuito.html" title="circuito">Circuito</a>
+            <a href="viajes.php" title="viajes">Viajes</a>
+            <a class= "active" href="juegos.html" title="juegos">Juegos</a>
+        </nav>
+    </header>
+    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href = "juegos.html" title ="Juegos">Juegos</a>> API</p>
+    <h2>Calculador de Estrategias de Carrera</h2>
+    
+    <section>
+        <h2>Configuración</h2>
+        <label for="vueltasCarrera">Vueltas de la carrera:</label>
+        <input type="number"  min="1" max="100" value="50" id= "vueltasCarrera"/>
+        
+        <p>Arrastra un neumático a la zona de estrategia:</p>
+        
+        <img src="multimedia/imagenes/blandos.jpg" alt="Blandos" title = "Neumaticos blandos" draggable="true" ondragstart="p.dragStart(event)" />
+        <img src="multimedia/imagenes/medios.jpg" alt="Medios" title = "Neumaticos medios" draggable="true" ondragstart="p.dragStart(event)" />
+        <img src="multimedia/imagenes/duros.jpg" alt="Duros" title = "Neumaticos duros" draggable="true" ondragstart="p.dragStart(event)" />
+    </section>
+    
+    <main>
+        <article ondrop="p.handleDrop(event)" ondragover="p.drop(event)">
+            <h3>Zona de Estrategia</h3>
+            <p>Deberas arrastar aqui los neumaticos para escoger la estrategia</p>
+        </article>
+        <input type="text" placeholder="Nombre de la estrategia"/>
+        <button onclick="p.simulateRace()" disabled = "true">Simular carrera y guardar estrategia</button>
+        
+    </main>
+    
+    <section>
+        <button onclick="p.limpiarMemoria()" disabled = "true">Limpiar memoria</button>
+        <article>
+            <h2>Analisis</h2>
+            <p>Aqui se mostrara el resultado de la simulacion</p>
+        </article>
+    </section>
+
+    <h3>Cargar estrategias</h3>
+    <p>Nombre de la estrategia: </p>
+    <input type="text" placeholder="Nombre de la estrategia"/>
+    <button onclick="p.cargarEstrategiaAntigua()" >Cargar estrategia</button>
+
+    
+    <script src= "js/api.js"></script>
+</body>

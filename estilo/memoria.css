@@ -1,0 +1,76 @@
+article img {
+    margin: 0; 
+    width: 70%;
+    height: 70%;
+    position: absolute;
+    border-radius: 20%;
+    background: #454545;
+    backface-visibility: hidden;
+    font-size: 1rem; 
+}
+
+article h3 {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    position: absolute;
+    border-radius: 1%;
+    background: #454545;
+    backface-visibility: hidden;
+    size: 9em;
+}
+article img {
+    transform: rotateY(180deg);
+}
+article[data-state=flip]
+{
+    transform: rotateY(180deg);
+    background: #fff;
+    
+}
+
+article[data-state=flip]  img {
+    background: #fff;
+    
+}
+article[data-state=revealed]{
+    transform: rotateY(180deg);
+    background: #fff;
+}
+
+article[data-state=revealed] img {
+    background: #fff;
+}
+article {
+    width: 20%;
+    height: 15rem;
+    margin: 0.5em;
+    transform: scale(1);
+    background-color: #454545;
+    cursor: pointer;
+    transform-style: preserve-3d;
+    transition: transform .5s;
+    box-shadow: 1em 1em 1em rgba(0,0,0,.3);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 5%;
+    position: relative;
+}
+
+h2{
+    width: 100%;
+    text-align: center;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%; 
+    justify-content: center;
+    align-items: center;
+    
+}
+
+

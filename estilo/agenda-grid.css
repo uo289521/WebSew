@@ -1,0 +1,38 @@
+main{
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+button{
+    align-self: center;
+}
+article{
+    padding: 0.5%;  
+    background-color: #BD9242;
+    margin: 1%;
+}
+
+article > p{
+    padding-left: 1%;
+}
+button{  
+    font-size:1.5em;
+}
+article > h3{
+    background-color: #ffff;
+    margin: 1%; 
+    padding: 1%;
+}
+ h3 a{
+    text-decoration: none; 
+    color: inherit; 
+    font-size: inherit; 
+    font-weight: inherit; 
+ }
+ h3 a:hover {
+    color: blue; 
+    font-size: 1.2em; 
+    text-decoration: underline;
+    
+}
+

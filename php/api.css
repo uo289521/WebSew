@@ -1,0 +1,86 @@
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 2em; 
+    margin: 2em auto;
+    max-width: 90%;
+    align-items: center;
+}
+section {
+    padding: 2em;
+    background: #ffffff;
+    box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.1);
+    border-radius: 0.5em;
+    display: flex;
+    width: 100%; /* Asegurar consistencia en el ancho */
+    justify-content: space-between; /* Formularios alineados a izquierda y derecha */
+    flex-wrap: wrap; 
+    gap: 1em; 
+}
+main + section {
+    display: flex;
+    gap: 2em; 
+    margin: 2em auto;
+    max-width: 95%;
+    align-items: center;
+}
+article {
+    background-color: #ffffff; /* Fondo blanco */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    max-width: 95%; /* Ancho relativo para centrar */
+    padding: 1.5rem; /* Espaciado interno */
+    box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 1); 
+    text-align: center; 
+    margin: 2rem auto; 
+}
+
+article strong {
+    color: #008000; 
+    font-weight: bold;
+}
+article p {
+    font-size: 1.2rem;
+    line-height: 1.5; 
+    margin: 0.5rem 0; 
+    color: #333333; 
+    text-align: center; 
+ 
+}
+article h3 {
+    font-size: 2rem; /* Tamaño de fuente relativo (~24px) */
+    margin-bottom: 1rem; /* Separación del título con los párrafos */
+    color: #008000; /* Verde oscuro */
+    text-align: center; 
+}
+/* Títulos */
+section > h2 {
+    width: 100%; 
+    margin-bottom: 1em;
+    font-size: 1.5rem;
+    color: #004080;
+    text-align: center;
+}
+
+
+form {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border: 0.1em solid #cccccc;
+    border-radius: 0.5em;
+    background-color: #fdfdfd;
+}
+
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em; 
+}
+
+
+form input[type="submit"]:hover {
+    font-size: 1.3rem;
+}
