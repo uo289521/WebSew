@@ -17,11 +17,7 @@ article h3 {
     position: absolute;
     background: #454545;
     backface-visibility: hidden;
-<<<<<<< HEAD
-    font-size:  calc(1 vw + 0.5rem); 
-=======
-    font-size: calc(1vw + 0.5rem); 
->>>>>>> 5c22407848f6ad59c3d0c07524c1062f8bae3854
+    font-size: calc(1vw + 0.5em); 
 }
 article img {
     transform: rotateY(180deg);

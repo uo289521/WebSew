@@ -98,6 +98,7 @@ section nav {
     flex-wrap: wrap;
     gap: 2vw; 
 }
+
 section nav a {
     text-decoration: none;
     color: #ffffff;
