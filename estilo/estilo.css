@@ -18,7 +18,7 @@ header{
     background-color: #D1A05C ;
     /* color heredado de body*/
     padding: 1%;
-    gap: 28vw;
+    gap: 25vw;
 }
 
 /*Especificacion 001 */
@@ -39,7 +39,7 @@ nav{
 nav a{
     color: #000075;
      /*background-color heredado de body*/
-     padding: 1.1em;
+     padding: 1.1em, 2em;
 }
 /*Especificacion 001 */
 table{
