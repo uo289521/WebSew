@@ -1,7 +1,7 @@
 class Noticias{
     constructor(){
-        const body = document.querySelector('body'); 
-        const message = document.createElement('p');
+        var body = document.querySelector('body'); 
+        var message = document.createElement('p');
         if (window.File && window.FileReader && window.FileList && window.Blob) 
         {  
             //El navegador soporta el API File
@@ -63,10 +63,10 @@ class Noticias{
         return; 
 
     }
-    // Crear una nueva noticia manualmente
-    const linea = `${titulo}_${cuerpo}_${autor}`;
+
+    var linea = `${titulo}_${cuerpo}_${autor}`;
     var area = document.querySelector('main'); 
-    const nuevaNoticia = noti.crearNoticia(linea,area);
+    var nuevaNoticia = noti.crearNoticia(linea,area);
 
     }
 

@@ -15,10 +15,9 @@ article h3 {
     justify-content: center;
     color: #fff;
     position: absolute;
-    border-radius: 1%;
     background: #454545;
     backface-visibility: hidden;
-    size: 9em;
+    font-size:  calc(1 vw + 0.5rem); 
 }
 article img {
     transform: rotateY(180deg);
@@ -44,7 +43,7 @@ article[data-state=revealed] img {
 }
 article {
     width: 20%;
-    height: 15rem;
+    height: 15em;
     margin: 0.5em;
     transform: scale(1);
     background-color: #454545;

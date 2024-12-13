@@ -55,7 +55,7 @@
 
         function getTipoCambio()
         {
-            $url = 'https://apilayer.net/api/live?';
+            $url = 'https://apilayer.net---Quitar----/api/live?';
             $url .= 'access_key=' . $this->apiKey;
             $url .= '&currencies=' . $this->monedaCambio;
             $url .= '&source=' . $this->monedaLocal;
@@ -128,7 +128,7 @@
         <button> &lt; </button>
         
         <script>
-            introducirCarrusel();
+            viaje.introducirCarrusel();
         </script>
     </section>
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5XJXQlR3GEcw181_kq5vrdq301GTIgI&amp;"></script>

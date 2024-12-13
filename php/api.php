@@ -493,7 +493,16 @@
             </nav>
         </header>
         <p>Estas en: <a href="../index.html" title="inicio">Inicio</a> >> <a href="../juegos.html" title="Juegos">Juegos</a>> JuegoPHP</p>
-
+        <h2>Juegos sobre la Formula1</h2>
+    <section>
+        <h3>Diferentes juegos de la Formula1: </h3>
+        <nav>
+            <p> <a href= "../memoria.html" title = "Juego memoria">Juego de memoria</a><p> 
+            <p> <a href= "../semaforo.php" title = "Juego semaforo">Juego del semaforo</a></p>
+            <p> <a href= "../api.html" title = "API">Estregia circuitos (API)</a></p>
+            <p> <a href = "api.php" title = "Juego Php"> Juego php </a></p>
+        </nav>     
+    </section>
         <main>
             <section>
                 <h2>Circuito</h2>

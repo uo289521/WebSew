@@ -42,7 +42,23 @@ class Api{
     
         return paradasPits;
     }
-
+    generarMusica(volumen) {
+        var ctx = new window.AudioContext();
+        var gainNode = ctx.createGain();
+        gainNode.gain.value = volumen;
+        gainNode.connect(ctx.destination); 
+    
+        fetch('multimedia/audios/sonidoFormula.mp3')
+            .then(data => data.arrayBuffer())
+            .then(arrayBuffer => ctx.decodeAudioData(arrayBuffer))
+            .then(buffer => {
+                var source = ctx.createBufferSource();
+                source.buffer = buffer;
+                source.connect(gainNode); 
+                source.start();
+            })
+    }
+    
     simulateRace(){
     var vueltasInput = document.querySelector('section >input');
     var vueltas = parseInt(vueltasInput.value, 10);
@@ -51,16 +67,22 @@ class Api{
     var tipoNeumatico = zonaEstrategia.textContent.split(': ')[1]; 
 
     if (!tipoNeumatico) {
-        alert('Selecciona un tipo de neumático.');
         return;
     }
 
+
+    
     var tiempoVueltaBase = 0;
     if (tipoNeumatico === 'Blandos') {
+        this.generarMusica(0.3)
         tiempoVueltaBase = 1.2; 
     } else if (tipoNeumatico === 'Medios') {
+        this.generarMusica(0.6)
+
         tiempoVueltaBase = 1.5;
     } else if (tipoNeumatico === 'Duros') {
+        this.generarMusica(1)
+
         tiempoVueltaBase = 1.8;
     }
 
@@ -88,6 +110,7 @@ class Api{
             localStorage.setItem(nombre, `${vueltas},${tipoNeumatico},${tiempo}`);
         }
         localStorage.setItem('raceStrategy', `${vueltas},${tipoNeumatico},${tiempo}`);
+        
     }
     loadStrategy() {
         var strategy = localStorage.getItem('raceStrategy');
@@ -106,7 +129,6 @@ class Api{
 
     handleVisibilityChange() {
         if (document.visibilityState === 'hidden') {
-            alert('¡No abanadones una estrategia, es muy importante!');
             document.title = '⚠️ Estrategia en pausa ⚠️';
         }else{
             document.title = "Formula1-Juegos"

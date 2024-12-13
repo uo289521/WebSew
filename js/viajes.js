@@ -27,7 +27,7 @@ class Viajes {
         this.precisionAltitud = posicion.coords.altitudeAccuracy;
         this.rumbo = posicion.coords.heading;
         this.velocidad = posicion.coords.speed;
-        mostrarMapaDinamico(this.latitud, this.longitud);
+        this.mostrarMapaDinamico(this.latitud, this.longitud);
         this.mostrarMapaEstatico();
     }
 
@@ -70,77 +70,78 @@ class Viajes {
         ubicacion.appendChild(imgMapa);
     }
 
+    mostrarMapaDinamico(latitud, longitud) {
+        if (isNaN(latitud) || isNaN(longitud)) {
+            console.error("Las coordenadas no son válidas");
+            return;
+        }
+        const divMapa = document.querySelector('div');
+        const centro = { lat: latitud, lng: longitud };
+        const mapaGeoposicionado = new google.maps.Map(divMapa, {
+            zoom: 14,
+            center: centro,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+        const infoWindow = new google.maps.InfoWindow;
+        if (navigator.geolocation) {
+    
+            infoWindow.setPosition(centro);
+            infoWindow.setContent('Localización encontrada');
+            mapaGeoposicionado.setCenter(centro);
+    
+        } else {
+            console.log("no se puede cargar el mapa dinamico")
+        }
+        infoWindow.open(mapaGeoposicionado);
+    }
+
+    introducirCarrusel(imagenes) {
+        const slides = document.querySelectorAll("main + div + section > img");
+        const nextSlide = document.querySelector("main + div + section > button:nth-of-type(1)");
+    
+        // current slide counter
+        let curSlide = 9;
+        // maximum number of slides
+        let maxSlide = slides.length - 1;
+        console.log(maxSlide)
+    
+        // add event listener and navigation functionality
+        nextSlide.addEventListener("click", function () {
+            // check if current slide is the last and reset current slide
+            if (curSlide === maxSlide) {
+                curSlide = 0;
+            } else {
+                curSlide++;
+            }
+    
+            //   move slide by -100%
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+    
+        const prevSlide = document.querySelector("main + div + section > button:nth-of-type(2)");
+    
+        // add event listener and navigation functionality
+        prevSlide.addEventListener("click", function () {
+            // check if current slide is the first and reset current slide to last
+            if (curSlide === 0) {
+                curSlide = maxSlide;
+            } else {
+                curSlide--;
+            }
+    
+            //   move slide by 100%
+            slides.forEach((slide, indx) => {
+                var trans = 100 * (indx - curSlide);
+                $(slide).css('transform', 'translateX(' + trans + '%)')
+            });
+        });
+    }
 
 }
 
 const viaje = new Viajes();
 
-function mostrarMapaDinamico(latitud, longitud) {
-    if (isNaN(latitud) || isNaN(longitud)) {
-        console.error("Las coordenadas no son válidas");
-        return;
-    }
-    const divMapa = document.querySelector('div');
-    const centro = { lat: latitud, lng: longitud };
-    const mapaGeoposicionado = new google.maps.Map(divMapa, {
-        zoom: 14,
-        center: centro,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    });
-    const infoWindow = new google.maps.InfoWindow;
-    if (navigator.geolocation) {
 
-        infoWindow.setPosition(centro);
-        infoWindow.setContent('Localización encontrada');
-        mapaGeoposicionado.setCenter(centro);
-
-    } else {
-        console.log("no se puede cargar el mapa dinamico")
-    }
-    infoWindow.open(mapaGeoposicionado);
-}
-
-function introducirCarrusel(imagenes) {
-    const slides = document.querySelectorAll("main + div + section > img");
-    const nextSlide = document.querySelector("main + div + section > button:nth-of-type(1)");
-
-    // current slide counter
-    let curSlide = 9;
-    // maximum number of slides
-    let maxSlide = slides.length - 1;
-    console.log(maxSlide)
-
-    // add event listener and navigation functionality
-    nextSlide.addEventListener("click", function () {
-        // check if current slide is the last and reset current slide
-        if (curSlide === maxSlide) {
-            curSlide = 0;
-        } else {
-            curSlide++;
-        }
-
-        //   move slide by -100%
-        slides.forEach((slide, indx) => {
-            var trans = 100 * (indx - curSlide);
-            $(slide).css('transform', 'translateX(' + trans + '%)')
-        });
-    });
-
-    const prevSlide = document.querySelector("main + div + section > button:nth-of-type(2)");
-
-    // add event listener and navigation functionality
-    prevSlide.addEventListener("click", function () {
-        // check if current slide is the first and reset current slide to last
-        if (curSlide === 0) {
-            curSlide = maxSlide;
-        } else {
-            curSlide--;
-        }
-
-        //   move slide by 100%
-        slides.forEach((slide, indx) => {
-            var trans = 100 * (indx - curSlide);
-            $(slide).css('transform', 'translateX(' + trans + '%)')
-        });
-    });
-}
