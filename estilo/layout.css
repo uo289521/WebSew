@@ -98,7 +98,13 @@ section nav {
     flex-wrap: wrap;
     gap: 2vw; 
 }
-
+section + h2 + section img {
+    touch-action: none; /* Desactiva el comportamiento táctil predeterminado */
+    cursor: grab;
+}
+section + h2 + section {
+    position: relative;
+}
 section nav a {
     text-decoration: none;
     color: #ffffff;
