@@ -6,7 +6,7 @@ class Api{
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
         }
-        this.handleMobileDrop(); 
+        this.setupMobileDrag();  
     }
 
     initEvents() {
