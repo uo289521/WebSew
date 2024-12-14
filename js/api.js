@@ -37,19 +37,21 @@ class Api{
     handleTouchStart(event) {
         event.preventDefault();
         this.touchedElement = event.target; // Guardar el elemento tocado
-        const rect = this.touchedElement.getBoundingClientRect(); // Obtener posición inicial del elemento
 
-        // Guardar posición inicial del elemento y del toque
+        // Guardar posición inicial del elemento
+        const rect = this.touchedElement.getBoundingClientRect();
+        const container = this.touchedElement.parentElement.getBoundingClientRect();
+
         this.startX = event.touches[0].clientX;
         this.startY = event.touches[0].clientY;
-        this.elementStartX = rect.left;
-        this.elementStartY = rect.top;
+        this.elementStartX = rect.left - container.left; // Posición relativa al contenedor
+        this.elementStartY = rect.top - container.top;
 
         // Aplicar estilos para mover
         this.touchedElement.style.position = 'absolute';
         this.touchedElement.style.zIndex = 1000;
-        this.touchedElement.style.left = `${rect.left}px`;
-        this.touchedElement.style.top = `${rect.top}px`;
+        this.touchedElement.style.left = `${this.elementStartX}px`;
+        this.touchedElement.style.top = `${this.elementStartY}px`;
     }
     handleTouchMove(event) {
         event.preventDefault();
