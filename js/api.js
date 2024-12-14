@@ -40,42 +40,32 @@ class Api{
         imgs.forEach(img => {
             img.addEventListener('touchstart', (e) => {
                 currentImg = e.target;
-                // Guardamos la posición original (aunque ya no moveremos la imagen)
                 originalX = currentImg.offsetLeft;
                 originalY = currentImg.offsetTop;
-            }, {passive: false});
+            });
 
-            // touchmove: ya no movemos la imagen
             img.addEventListener('touchmove', (e) => {
-                // Evitamos comportamiento por defecto para que no haga scroll
-                e.preventDefault();
-                // Aquí no cambiamos la posición de la imagen, no la movemos visualmente.
-            }, {passive: false});
+                e.preventDefault();             
+            });
 
             // touchend: verificar si se suelta en la zona de drop
             img.addEventListener('touchend', (e) => {
                 e.preventDefault();
-                if(!currentImg) return;
+
 
                 const finalTouch = e.changedTouches[0];
                 const finalX = finalTouch.clientX;
                 const finalY = finalTouch.clientY;
                 
                 const dropZoneRect = dropZone.getBoundingClientRect();
-
-                // Comprobamos si la posición final del dedo está dentro del dropZone
                 if (finalX >= dropZoneRect.left && finalX <= dropZoneRect.right &&
                     finalY >= dropZoneRect.top && finalY <= dropZoneRect.bottom) {
                     
-                    // No movemos la imagen a la zona (no appendChild)
-                    // Simplemente ejecutamos la lógica de "drop" equivalente
                     this.handleMobileDrop(currentImg.alt);
                 } else {
-                    // Si no está dentro, no pasa nada, la imagen nunca se movió
-                    // No hay necesidad de restaurar posición, puesto que no se alteró.
                 }
                 currentImg = null;
-            }, {passive: false});
+            });
         });
     }
 
