@@ -6,6 +6,8 @@ class Api{
         this.touchedElement = null; // Elemento que se está tocando
         this.startX = 0; // Coordenada X inicial
         this.startY = 0; // Coordenada Y inicial
+        this.elementStartX = 0; 
+        this.elementStartY = 0; // Posición Y inicial del elemento
         if(localStorage.getItem('raceStrategy')){
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
@@ -34,52 +36,58 @@ class Api{
     }
     handleTouchStart(event) {
         event.preventDefault();
-        this.touchedElement = event.target; // Guardar el elemento que se está tocando
-        this.startX = event.touches[0].clientX; // Coordenada X inicial
-        this.startY = event.touches[0].clientY; // Coordenada Y inicial
-        this.touchedElement.style.position = 'absolute'; // Permitir mover el elemento
-        this.touchedElement.style.zIndex = 1000; // Asegurar que esté delante
+        this.touchedElement = event.target; // Guardar el elemento tocado
+        const rect = this.touchedElement.getBoundingClientRect(); // Obtener posición inicial del elemento
+
+        // Guardar posición inicial del elemento y del toque
+        this.startX = event.touches[0].clientX;
+        this.startY = event.touches[0].clientY;
+        this.elementStartX = rect.left;
+        this.elementStartY = rect.top;
+
+        // Aplicar estilos para mover
+        this.touchedElement.style.position = 'absolute';
+        this.touchedElement.style.zIndex = 1000;
+        this.touchedElement.style.left = `${rect.left}px`;
+        this.touchedElement.style.top = `${rect.top}px`;
     }
     handleTouchMove(event) {
         event.preventDefault();
-        const touch = event.touches[0]; // Obtener la posición actual del toque
-        const deltaX = touch.clientX - this.startX; // Diferencia en X
-        const deltaY = touch.clientY - this.startY; // Diferencia en Y
+        if (!this.touchedElement) return;
 
-        // Mover el elemento utilizando transform para mantener fluidez
-        this.touchedElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        // Calcular desplazamiento
+        const deltaX = event.touches[0].clientX - this.startX;
+        const deltaY = event.touches[0].clientY - this.startY;
+
+        // Mover el elemento
+        this.touchedElement.style.left = `${this.elementStartX + deltaX}px`;
+        this.touchedElement.style.top = `${this.elementStartY + deltaY}px`;
     }
     
     
     handleTouchEnd(event) {
         event.preventDefault();
+        if (!this.touchedElement) return;
+
         const touch = event.changedTouches[0];
         const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-    
-        // Obtener la referencia esperada del <article>
         const expectedArticle = document.querySelector('main > article');
-    
-        // Verificar si el elemento soltado coincide con el esperado
+
         if (dropTarget && dropTarget === expectedArticle) {
             const strategyZone = expectedArticle.querySelector('p');
             const tireType = this.touchedElement.alt; // Obtener el tipo de neumático
             strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
-    
             const button = document.querySelector('main > button');
             button.disabled = false; // Habilitar el botón de simulación
-    
-            // Mover el neumático al artículo
-            dropTarget.appendChild(this.touchedElement);
+        } else {
+            // Restaurar posición inicial si no es una zona válida
+            this.touchedElement.style.left = `${this.elementStartX}px`;
+            this.touchedElement.style.top = `${this.elementStartY}px`;
         }
-    
-        // Restaurar la posición inicial si no es una zona válida
-        if (this.touchedElement) {
-            this.touchedElement.style.position = '';
-            this.touchedElement.style.transform = '';
-            this.touchedElement.style.zIndex = '';
-        }
-    
-        // Limpiar el elemento tocado
+
+        // Limpiar estilos y referencia
+        this.touchedElement.style.position = '';
+        this.touchedElement.style.zIndex = '';
         this.touchedElement = null;
     }
     
