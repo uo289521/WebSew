@@ -24,7 +24,7 @@ class Noticias{
 
         tituloElem.textContent = titulo;
         cuerpoElem.textContent = cuerpo;
-        autorElem.textContent = autor;
+        autorElem.textContent = "Autor: "+autor;
 
 
         article.appendChild(tituloElem);

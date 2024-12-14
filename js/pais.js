@@ -20,8 +20,16 @@ class Pais{
         return "<p> "+this.nombre+" <p>"; 
     }
 
-    informacionSecundaria(){
-        return this.nombreCircuitoF1+this.cantidadPoblacion+this.formaGobierno+this.religion+""; 
+    informacionSecundaria() {
+        return `
+            <ul>
+                <li>Circuito de F1: ${this.nombreCircuitoF1}</li>
+                <li>Población: ${this.cantidadPoblacion}</li>
+                <li>Forma de Gobierno: ${this.formaGobierno}</li>
+                <li>Religión: ${this.religion}</li>
+                <li>Coordenadas linea meta: ${this.latitud}, ${this.longitud}</li> 
+            </ul>
+        `;
     }
 
     construirUrl(){
@@ -30,19 +38,28 @@ class Pais{
     }
 
     escribirCoordenadas(){
-        window.document.write("<p>  "+this.latitud+"   "+this.longitud+"</p>"); 
+        var info = `<h3> Informacion del Pais </h3>`
+        info += `<p> País:  ${this.nombre} </p> `; 
+        info += `<p> Capital: ${this.capital} </p> `; 
+        var lista = this.informacionSecundaria(); 
+        window.document.write("<section>  "+info+"   "+lista+"</section >"); 
     }
 
 
     crearArticle(pronosticos){
+        let main = $("main");
+        if (main.length === 0) {
+            main = $("<main>");
+            $("body").append(main);
+        }
         pronosticos.forEach(pronostico => { 
             const article = `
             <article>
                 <h3>${pronostico.fecha}</h3>
-                <p><strong>Temperatura máxima:</strong> ${pronostico.temp_max}K</p>
-                <p><strong>Temperatura mínima:</strong> ${pronostico.temp_min}K</p>
-                <p><strong>Humedad:</strong> ${pronostico.humidity}%</p>
-                <p><strong>Lluvia:</strong> ${pronostico.rain}mm</p>
+                <p>Temperatura máxima: ${pronostico.temp_max}K</p>
+                <p>Temperatura mínima: ${pronostico.temp_min}K</p>
+                <p>Humedad: ${pronostico.humidity}%</p>
+                <p>Lluvia: ${pronostico.rain}mm</p>
                 <img src="https://openweathermap.org/img/wn/${pronostico.icon}.png" alt="Icono del clima">
             </article>
         `;
@@ -52,6 +69,7 @@ class Pais{
 
     }
     llamadaApi(){
+        
       $.ajax({
            url : this.construirUrl(), 
            dataType: "xml", 
@@ -80,7 +98,7 @@ class Pais{
            
            , 
            error:function(){
-            console.log("acaba de ocurrir un error"); 
+            
            }
       })
     }

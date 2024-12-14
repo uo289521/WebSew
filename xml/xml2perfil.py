@@ -19,7 +19,7 @@ def xml_to_svg(xml_parse, svg):
      f = open(svg, 'w')
 
      f.write('<?xml version="1.0" encoding="UTF-8" ?>\n')
-     f.write('<svg xmlns="http://www.w3.org/2000/svg" version="2.0"  viewBox="0 0 900 800" preserveAspectRatio="xMidYMid meet">\n')
+     f.write('<svg xmlns="http://www.w3.org/2000/svg" version="1.1"  viewBox="0 0 900 800" preserveAspectRatio="xMidYMid meet">\n')
      f.write('<polyline points= \n"')
      for punto in acumulador: 
           f.write(punto+"\n")

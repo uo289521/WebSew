@@ -16,12 +16,11 @@ class Fondo{
                 .done(function(data) {
                         $.each(data.items, function(i,item ) {
                             var url =  item.media.m.replace("_m.jpg", "_b.jpg")
-                           
-                            
                             $('body')
                             .css({
                                 "background-image" : "url("+url+")",
                                 "background-size" : "cover", 
+
                             })
                             if ( i === 0 ) {
                                     return false;

@@ -105,16 +105,14 @@ class Viajes {
         let maxSlide = slides.length - 1;
         console.log(maxSlide)
     
-        // add event listener and navigation functionality
         nextSlide.addEventListener("click", function () {
-            // check if current slide is the last and reset current slide
+
             if (curSlide === maxSlide) {
                 curSlide = 0;
             } else {
                 curSlide++;
             }
-    
-            //   move slide by -100%
+
             slides.forEach((slide, indx) => {
                 var trans = 100 * (indx - curSlide);
                 $(slide).css('transform', 'translateX(' + trans + '%)')
@@ -123,9 +121,7 @@ class Viajes {
     
         const prevSlide = document.querySelector("main + div + section > button:nth-of-type(2)");
     
-        // add event listener and navigation functionality
         prevSlide.addEventListener("click", function () {
-            // check if current slide is the first and reset current slide to last
             if (curSlide === 0) {
                 curSlide = maxSlide;
             } else {

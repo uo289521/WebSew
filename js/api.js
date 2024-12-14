@@ -2,6 +2,7 @@ class Api{
     constructor(){
         this.initEvents();
         this.loadStrategy();
+        this.initTouchEvents(); 
         if(localStorage.getItem('raceStrategy')){
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
@@ -28,7 +29,52 @@ class Api{
         var bot = document.querySelector('main > button')
         bot.disabled = false; 
     }
-
+    handleTouchStart(event) {
+        this.touchedElement = event.target;
+        this.touchData = event.target.alt; 
+    }
+    
+    handleTouchMove(event) {
+        event.preventDefault();
+        const touch = event.touches[0];
+        const draggedElement = this.touchedElement;
+    
+        if (draggedElement) {
+            draggedElement.style.position = 'absolute';
+            draggedElement.style.left = `${touch.clientX}px`;
+            draggedElement.style.top = `${touch.clientY}px`;
+        }
+    }
+    
+    handleTouchEnd(event) {
+        const dropTarget = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+        
+        if (dropTarget && dropTarget.classList.contains('drop-zone')) {
+            const strategyZone = document.querySelector('main > article > p');
+            strategyZone.textContent = `Has seleccionado neumáticos: ${this.touchData}`;
+    
+            var bot = document.querySelector('main > button');
+            bot.disabled = false;
+        }
+    
+        if (this.touchedElement) {
+            this.touchedElement.style.position = '';
+            this.touchedElement.style.left = '';
+            this.touchedElement.style.top = '';
+        }
+    
+        // Limpiar datos
+        this.touchedElement = null;
+        this.touchData = null;
+    }
+    initTouchEvents() {
+        const draggableElements = document.querySelectorAll('section > img'); 
+        draggableElements.forEach((element) => {
+            element.addEventListener('touchstart', (event) => this.handleTouchStart(event));
+            element.addEventListener('touchmove', (event) => this.handleTouchMove(event));
+            element.addEventListener('touchend', (event) => this.handleTouchEnd(event));
+        });
+    }
     calcularParadasPits(vueltas, tipoNeumatico) {
         var paradasPits = 0;
     
