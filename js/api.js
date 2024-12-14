@@ -3,6 +3,9 @@ class Api{
         this.initEvents();
         this.loadStrategy();
         this.initTouchEvents(); 
+        this.touchedElement = null; // Elemento que se está tocando
+        this.startX = 0; // Coordenada X inicial
+        this.startY = 0; // Coordenada Y inicial
         if(localStorage.getItem('raceStrategy')){
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
@@ -30,46 +33,61 @@ class Api{
         bot.disabled = false; 
     }
     handleTouchStart(event) {
-        this.touchedElement = event.target;
-        this.touchData = event.target.alt; 
+        event.preventDefault();
+        this.touchedElement = event.target; // Guardar el elemento que se está tocando
+        this.startX = event.touches[0].clientX; // Coordenada X inicial
+        this.startY = event.touches[0].clientY; // Coordenada Y inicial
+        this.touchedElement.style.position = 'absolute'; // Permitir mover el elemento
+        this.touchedElement.style.zIndex = 1000; // Asegurar que esté delante
     }
-    
     handleTouchMove(event) {
         event.preventDefault();
-        const touch = event.touches[0];
-        const draggedElement = this.touchedElement;
-    
-        if (draggedElement) {
-            draggedElement.style.position = 'absolute';
-            draggedElement.style.left = `${touch.clientX}px`;
-            draggedElement.style.top = `${touch.clientY}px`;
-        }
+        const touch = event.touches[0]; // Obtener la posición actual del toque
+        const deltaX = touch.clientX - this.startX; // Diferencia en X
+        const deltaY = touch.clientY - this.startY; // Diferencia en Y
+
+        // Mover el elemento utilizando transform para mantener fluidez
+        this.touchedElement.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
     }
+    
     
     handleTouchEnd(event) {
-        const dropTarget = document.elementFromPoint(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
-        
-        if (dropTarget && dropTarget.classList.contains('drop-zone')) {
-            const strategyZone = document.querySelector('main > article > p');
-            strategyZone.textContent = `Has seleccionado neumáticos: ${this.touchData}`;
+        event.preventDefault();
+        const touch = event.changedTouches[0];
+        const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
     
-            var bot = document.querySelector('main > button');
-            bot.disabled = false;
+        // Obtener la referencia esperada del <article>
+        const expectedArticle = document.querySelector('main > article');
+    
+        // Verificar si el elemento soltado coincide con el esperado
+        if (dropTarget && dropTarget === expectedArticle) {
+            const strategyZone = expectedArticle.querySelector('p');
+            const tireType = this.touchedElement.alt; // Obtener el tipo de neumático
+            strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
+    
+            const button = document.querySelector('main > button');
+            button.disabled = false; // Habilitar el botón de simulación
+    
+            // Mover el neumático al artículo
+            dropTarget.appendChild(this.touchedElement);
         }
     
+        // Restaurar la posición inicial si no es una zona válida
         if (this.touchedElement) {
             this.touchedElement.style.position = '';
-            this.touchedElement.style.left = '';
-            this.touchedElement.style.top = '';
+            this.touchedElement.style.transform = '';
+            this.touchedElement.style.zIndex = '';
         }
     
-        // Limpiar datos
+        // Limpiar el elemento tocado
         this.touchedElement = null;
-        this.touchData = null;
     }
+    
+    
     initTouchEvents() {
-        const draggableElements = document.querySelectorAll('section > img'); 
+        const draggableElements = document.querySelectorAll('picture > img'); 
         draggableElements.forEach((element) => {
+            console.log(element)
             element.addEventListener('touchstart', (event) => this.handleTouchStart(event));
             element.addEventListener('touchmove', (event) => this.handleTouchMove(event));
             element.addEventListener('touchend', (event) => this.handleTouchEnd(event));
