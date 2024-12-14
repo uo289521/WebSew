@@ -49,9 +49,23 @@
         
         <p>Arrastra un neumático a la zona de estrategia:</p>
         
-        <img src="multimedia/imagenes/blandos.jpg" alt="Blandos" title = "Neumaticos blandos" draggable="true" ondragstart="p.dragStart(event)" />
-        <img src="multimedia/imagenes/medios.jpg" alt="Medios" title = "Neumaticos medios" draggable="true" ondragstart="p.dragStart(event)" />
-        <img src="multimedia/imagenes/duros.jpg" alt="Duros" title = "Neumaticos duros" draggable="true" ondragstart="p.dragStart(event)" />
+<picture>
+    <source srcset="multimedia/imagenes/blandosPequeño.jpg" media="(max-width: 768px)">
+    <source srcset="multimedia/imagenes/blandos.jpg" media="(min-width: 769px)">
+    <img src="multimedia/imagenes/blandos.jpg" alt="Blandos" title="Neumáticos blandos" draggable="true" ondragstart="p.dragStart(event)">
+</picture>
+
+<picture>
+    <source srcset="multimedia/imagenes/mediosPequeño.jpg" media="(max-width: 768px)">
+    <source srcset="multimedia/imagenes/medios.jpg" media="(min-width: 769px)">
+    <img src="multimedia/imagenes/medios.jpg" alt="Medios" title="Neumáticos medios" draggable="true" ondragstart="p.dragStart(event)">
+</picture>
+
+<picture>
+    <source srcset="multimedia/imagenes/durosPequeño.jpg" media="(max-width: 768px)">
+    <source srcset="multimedia/imagenes/duros.jpg" media="(min-width: 769px)">
+    <img src="multimedia/imagenes/duros.jpg" alt="Duros" title="Neumáticos duros" draggable="true" ondragstart="p.dragStart(event)">
+</picture>
     </section>
     
     <main>
