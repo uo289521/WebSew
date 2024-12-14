@@ -1,17 +1,24 @@
 /* David Rodriguez Chanca UO289521 */
 /*Colores: 
-    Dorado : BD9242
-    Cal : f4ebd0
-    VerdeOscuro: 122620
-    Morado oscuro: 000033
-    AzulTurquesa : 5DE2E7
+#E5DECD = Crema 
+#080808 = Negro 
+#D1A05C = MarronClaro
+#BD9242 = Dorado
+#122620 = Verde oscuro
+#000033 = Morado 
+#000075 = AzulMarino 
+#762D2D = Marrón
+#454545 = Gris 
+#ffffff = Blanco
+#000 = Negro
+*/
 
 
 /*Especificacion 001 */
 body{
     font-family: Verdana,Geneva,sans-serif;
     background-color:  #E5DECD;
-    color: #080808; 
+    color: #000; 
 }
 /*Especificacion 001 */
 header{
@@ -98,8 +105,14 @@ video{
     font-weight: 600;
     font-style:oblique; 
 }
-
+/*Especificacion 003 */
+section nav a {
+    color: #ffffff;
+    background: #000;
+    border-radius: 1.5vw;
+}
 @media(max-width:465px){
+    /*Especificacion 002 */
     header + p {
         display: none
     }

@@ -1,51 +1,69 @@
+/* David Rodriguez Chanca UO289521 */
+/*Colores:
+#454545 = Gris oscuro
+#fff = Blanco puro
+
+*/
+/*Especificacion 002 */
 article img {
     margin: 0; 
     width: 70%;
     height: 70%;
     position: absolute;
     border-radius: 20%;
+        /* color heredado de body*/
     background: #454545;
     backface-visibility: hidden;
     font-size: 1rem; 
 }
-
+/*Especificacion 002 */
 article h3 {
     flex-direction: row;
     align-items: center;
     justify-content: center;
     color: #fff;
     position: absolute;
+        /* color heredado de body*/
     background: #454545;
     backface-visibility: hidden;
     font-size: calc(1vw + 0.5em); 
 }
+/*Especificacion 002 */
 article img {
     transform: rotateY(180deg);
 }
+/*Especificacion 011 */
 article[data-state=flip]
 {
     transform: rotateY(180deg);
+        /* color heredado de body*/
     background: #fff;
     
 }
-
+/*Especificacion 012*/
 article[data-state=flip]  img {
+        /* color heredado de body*/
     background: #fff;
     
 }
+/*Especificacion 011 */
 article[data-state=revealed]{
     transform: rotateY(180deg);
+        /* color heredado de body*/
     background: #fff;
 }
-
+/*Especificacion 012 */
 article[data-state=revealed] img {
+        /* color heredado de body*/
     background: #fff;
 }
+/*Especificacion 001 */
 article {
     width: 20%;
     height: 15em;
     margin: 0.5em;
     transform: scale(1);
+        /* color heredado de body*/
     background-color: #454545;
     cursor: pointer;
     transform-style: preserve-3d;
@@ -57,12 +75,12 @@ article {
     border-radius: 5%;
     position: relative;
 }
-
+/*Especificacion 001 */
 h2{
     width: 100%;
     text-align: center;
 }
-
+/*Especificacion 001 */
 main{
     display: flex;
     flex-wrap: wrap;

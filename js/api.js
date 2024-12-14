@@ -3,7 +3,7 @@ class Api{
         this.initEvents();
         this.loadStrategy();
         if(localStorage.getItem('raceStrategy')){
-            var aux = document.querySelector('section > button ')
+            var aux = document.querySelector('section +article  button ')
             aux.disabled = false; 
         }
         this.setupMobileDrag(); 
@@ -30,12 +30,12 @@ class Api{
         bot.disabled = false; 
     }
     setupMobileDrag() {
-        const imgs = document.querySelectorAll('img'); // Las "ruedas"
-        const dropZone = document.querySelector('main > article');
+        var imgs = document.querySelectorAll('img'); 
+        var dropZone = document.querySelector('main > article');
 
-        let currentImg = null;
-        let originalX = 0;
-        let originalY = 0;
+        var currentImg = null;
+        var originalX = 0;
+        var originalY = 0;
 
         imgs.forEach(img => {
             img.addEventListener('touchstart', (e) => {
@@ -47,34 +47,27 @@ class Api{
             img.addEventListener('touchmove', (e) => {
                 e.preventDefault();             
             });
-
-            // touchend: verificar si se suelta en la zona de drop
             img.addEventListener('touchend', (e) => {
                 e.preventDefault();
+                var finalTouch = e.changedTouches[0];
+                var finalX = finalTouch.clientX;
+                var finalY = finalTouch.clientY;
 
-
-                const finalTouch = e.changedTouches[0];
-                const finalX = finalTouch.clientX;
-                const finalY = finalTouch.clientY;
-                
-                const dropZoneRect = dropZone.getBoundingClientRect();
+                var dropZoneRect = dropZone.getBoundingClientRect();
                 if (finalX >= dropZoneRect.left && finalX <= dropZoneRect.right &&
-                    finalY >= dropZoneRect.top && finalY <= dropZoneRect.bottom) {
-                    
+                    finalY >= dropZoneRect.top && finalY <= dropZoneRect.bottom) {                   
                     this.handleMobileDrop(currentImg.alt);
-                } else {
-                }
+                } 
                 currentImg = null;
             });
         });
     }
 
     handleMobileDrop(tireType) {
-        // Aquí replicamos la lógica del handleDrop sin mover la imagen
         const strategyZone = document.querySelector('main > article > p');
         strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
         var bot = document.querySelector('main > button')
-        bot.disabled = false; 
+        bot.disabled = False; 
     }
     
     calcularParadasPits(vueltas, tipoNeumatico) {
@@ -149,7 +142,7 @@ class Api{
     elementoResultado.textContent = `Neumaticos: ${tipoNeumatico}, vueltas: ${vueltas}, paradas en pits: ${paradasPits}, tiempo total estimado: ${tiempo} minutos.`;
     this.saveStrategy( vueltas, tipoNeumatico, tiempo );
 
-    var botonLimpiar = document.querySelector('section > button'); 
+    var botonLimpiar = document.querySelector('section +article  button'); 
     botonLimpiar.disabled = false;
     }
     saveStrategy(vueltas, tipoNeumatico, tiempo) {
@@ -184,7 +177,7 @@ class Api{
     }
 
     limpiarMemoria(){
-        localStorage.removeItem('raceStrategy'); 
+        localStorage.clear(); 
         var tituloResultado = document.querySelector('section > article > h2'); 
         tituloResultado.textContent = 'Analisis'; 
 
@@ -197,7 +190,7 @@ class Api{
     }
 
     cargarEstrategiaAntigua(){
-        var nombreEstrategia = document.querySelector('h3 + p + input')
+        var nombreEstrategia = document.querySelector('section + article input')
         var estrategia = localStorage.getItem(nombreEstrategia.value); 
         if (estrategia) {
 

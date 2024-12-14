@@ -1,3 +1,11 @@
+/* David Rodriguez Chanca UO289521 */
+/*Colores:
+#333333 = Gris oscuro
+#008000 = Verde oscuro
+#004080 = Azul oscuro
+#cccccc = Gris claro
+#ffffff = Blanco */
+/*Especificacion 001 */
 main {
     display: flex;
     flex-direction: column;
@@ -6,6 +14,19 @@ main {
     max-width: 90%;
     align-items: center;
 }
+/*Especificacion 004 */
+header + p + h2 + section{
+    padding: initial;
+    background: initial;
+    box-shadow: initial;
+    border-radius: initial;
+    display: initial;
+    width: initial;
+    justify-content: initial;
+    flex-wrap: initial; 
+    gap: initial;
+}
+/*Especificacion 001 */
 section {
     padding: 2em;
     background: #ffffff;
@@ -17,6 +38,7 @@ section {
     flex-wrap: wrap; 
     gap: 1em; 
 }
+/*Especificacion 002 */
 main + section {
     display: flex;
     gap: 2em; 
@@ -24,7 +46,8 @@ main + section {
     max-width: 95%;
     align-items: center;
 }
-article {
+/*Especificacion 011 */
+article:not(:first-of-type) {
     background-color: #ffffff; /* Fondo blanco */
     border-radius: 0.5rem; /* Bordes redondeados */
     max-width: 95%; /* Ancho relativo para centrar */
@@ -33,11 +56,7 @@ article {
     text-align: center; 
     margin: 2rem auto; 
 }
-
-article strong {
-    color: #008000; 
-    font-weight: bold;
-}
+/*Especificacion 002 */
 article p {
     font-size: 1.2rem;
     line-height: 1.5; 
@@ -46,13 +65,14 @@ article p {
     text-align: center; 
  
 }
+/*Especificacion 002 */
 article h3 {
     font-size: 2rem; /* Tamaño de fuente relativo (~24px) */
     margin-bottom: 1rem; /* Separación del título con los párrafos */
     color: #008000; /* Verde oscuro */
     text-align: center; 
 }
-/* Títulos */
+/*Especificacion 002 */
 section > h2 {
     width: 100%; 
     margin-bottom: 1em;
@@ -61,7 +81,7 @@ section > h2 {
     text-align: center;
 }
 
-
+/*Especificacion 001 */
 form {
     flex: 1; 
     display: flex;
@@ -70,17 +90,17 @@ form {
     padding: 1em;
     border: 0.1em solid #cccccc;
     border-radius: 0.5em;
-    background-color: #fdfdfd;
+    background-color: #ffffff;
 }
 
-
+/*Especificacion 001 */
 form {
     display: flex;
     flex-direction: column;
     gap: 1em; 
 }
 
-
+/*Especificacion 022 */
 form input[type="submit"]:hover {
     font-size: 1.3rem;
 }

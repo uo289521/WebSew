@@ -334,7 +334,7 @@
             $resultado = $this->obtenerBalance($numeroVueltas, $dineroEscuderia, $precioLitroGasolina, $nombreEscuderia);
             if($resultado != -1){
                 echo "<p> El balance de la escuderia " . $nombreEscuderia . " en el circuito " . $nombreCircuito
-                    . " es de <strong>" . $resultado."</strong></p>";
+                    . " es de " . $resultado."</p>";    
 
             }
                 
@@ -494,7 +494,7 @@
         </header>
         <p>Estas en: <a href="../index.html" title="inicio">Inicio</a> >> <a href="../juegos.html" title="Juegos">Juegos</a>> JuegoPHP</p>
         <h2>Juegos sobre la Formula1</h2>
-    <section>
+        <section>
         <h3>Diferentes juegos de la Formula1: </h3>
         <nav>
             <p> <a href= "../memoria.html" title = "Juego memoria">Juego de memoria</a><p> 

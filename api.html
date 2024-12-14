@@ -38,8 +38,7 @@
     <section>
         <h3>Diferentes juegos de la Formula1: </h3>
         <nav>
-            <p> <a href="memoria.html" title="Juego memoria">Juego de memoria</a>
-            <p>
+            <p> <a href="memoria.html" title="Juego memoria">Juego de memoria</a></p>
             <p> <a href="semaforo.php" title="Juego semaforo">Juego del semaforo</a></p>
             <p> <a href="api.html" title="API">Estregia circuitos (API)</a></p>
             <p> <a href="php/api.php" title="Juego Php"> Juego php </a></p>
@@ -81,22 +80,24 @@
             <p>Deberas arrastar aqui los neumaticos para escoger la estrategia</p>
         </article>
         <input type="text" placeholder="Nombre de la estrategia" />
-        <button onclick="p.simulateRace()" disabled="true">Simular carrera y guardar estrategia</button>
+        <button onclick="p.simulateRace()" disabled>Simular carrera y guardar estrategia</button>
 
     </main>
 
     <section>
-        <button onclick="p.limpiarMemoria()" disabled="true">Limpiar memoria</button>
         <article>
             <h2>Analisis</h2>
             <p>Aqui se mostrara el resultado de la simulacion</p>
         </article>
     </section>
-
-    <h3>Cargar estrategias</h3>
-    <p>Nombre de la estrategia: </p>
-    <input type="text" placeholder="Nombre de la estrategia" />
-    <button onclick="p.cargarEstrategiaAntigua()">Cargar estrategia</button>
+    <article>
+        <h3>Administrar estrategias</h3>
+        <p>Limpiar memoria:</p>
+        <button onclick="p.limpiarMemoria()" disabled>Limpiar memoria de estrategias</button>
+        <p>Cargar estrategia: </p>
+        <input type="text" placeholder="Nombre de la estrategia" />
+        <button onclick="p.cargarEstrategiaAntigua()">Cargar estrategia</button>
+    </article>
 
 
     <script src="js/api.js"></script>

@@ -1,25 +1,31 @@
+/* David Rodriguez Chanca UO289521 */
+/*Colores:
+#000A = Negro alpha
+#ff0000 = Rojo puro
+#000000 = Negro puro
+
+*/
+
 @keyframes cambioRojo {
     0%{
+        /*color heredado de body*/
         background-color: #000A;
     }
     100%{
+        /*color heredado de body*/
         background-color: #ff0000;
     }
 }
 
-@keyframes out{   
-    100%{
-        background-color: #000A;
-    }
-}
-
-
+/*Especificacion 001 */
 div {
+    /*color heredado de body*/
     background-color: #000A;
-    border: 0.5em solid black;
+    border: 0.5em solid #000000;
     aspect-ratio: 1;
     border-radius: 50%;
 }
+/*Especificacion 001 */
 main {
     width: 60%;
     height: 50%;
@@ -30,32 +36,41 @@ main {
     gap: 5% 3%;
     align-items: center;
 }
+/*Especificacion 002 */
 main > p{
     grid-column: 2 / 4;
     text-align: center;
 }
+/*Especificacion 001 */
 h2 {
     grid-column: 1 / -1;
     text-align: center;
 }
+/*Especificacion 011 */
 button:first-of-type {
     grid-column: 2 / span 1;
 }
-
+/*Especificacion 011 */
 button:nth-of-type(2) {
     grid-column: 3 / span 1;
 }
+/*Especificacion 002 */
 main + section {
-    display: flexbox;
-    margin: 5% 15%
+    margin: 5% 15%; 
 }
+/*Especificacion 003 */
+main + section form{
+    text-align: center;
+}
+/*Especificacion 003 */
 main + section > h3{
     text-align: center; 
 }
+/*Especificacion 001 */
 ol{
     margin: 5% 15%
 }
-
+/*Especificacion 022 */
 main.load div:first-of-type,
 main.load div:nth-of-type(2),
 main.load div:nth-of-type(3),
@@ -64,16 +79,20 @@ main.load div:nth-of-type(4) {
     animation-duration: 0.5s;
     animation-fill-mode: forwards;
 }
+/*Especificacion 022 */
 main.load div:nth-of-type(2){
     animation-delay: 0.5s;
 }
+/*Especificacion 022 */
 main.load div:nth-of-type(3){
     animation-delay: 1s;
 }
+/*Especificacion 022 */
 main.load div:nth-of-type(4){
     animation-delay: 1.5s;
 }
 
+/*Especificacion 022 */
 main.outload div:first-of-type,
 main.outload div:nth-of-type(2),
 main.outload div:nth-of-type(3),

@@ -1,19 +1,3 @@
-<!DOCTYPE HTML>
-
-<html lang="es">
-<head>
-    <!-- Datos que describen el documento -->
-    <meta charset="UTF-8" />
-    <title>Formula1-Juegos</title>
-    <meta name="author" content="David Rodriguez Chanca"/>
-    <meta name ="description" content="Meteorologia de la formula1"/>
-    <meta name ="keywords" content="F1 Formula1 FormulaUno Juegos"/>
-    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
-    <link rel="stylesheet" type="text/css" href="estilo/semaforo.css"/>
-    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type = "image/vnd.microsoft.icon"/>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <?php 
             class Record{
                 public $server; 
@@ -79,6 +63,22 @@
 
 
         ?>
+<!DOCTYPE HTML>
+
+<html lang="es">
+<head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8" />
+    <title>Formula1-Juegos</title>
+    <meta name="author" content="David Rodriguez Chanca"/>
+    <meta name ="description" content="Meteorologia de la formula1"/>
+    <meta name ="keywords" content="F1 Formula1 FormulaUno Juegos"/>
+    <meta name ="viewport" content ="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css"/>
+    <link rel="stylesheet" type="text/css" href="estilo/semaforo.css"/>
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type = "image/vnd.microsoft.icon"/>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -99,10 +99,13 @@
     <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href = "juegos.html" title ="Juegos">Juegos</a>> Semaforo</p>
     <h2>Juegos sobre la Formula1</h2>
     <section>
-        <h3>Juegos de la Formula 1</h3>
-        <p> <a href= "api.html" title = "API">Estregia circuitos (API)</a></p>
-        <p> <a href= "memoria.html" title = "Juego memoria">Juego de memoria</a><p> 
-        <p> <a href= "semaforo.html" title = "Juego semaforo">Juego del semaforo</a></p>
+        <h3>Diferentes juegos de la Formula1: </h3>
+        <nav>
+            <p> <a href= "memoria.html" title = "Juego memoria">Juego de memoria</a><p> 
+            <p> <a href= "semaforo.php" title = "Juego semaforo">Juego del semaforo</a></p>
+            <p> <a href= "api.html" title = "API">Estregia circuitos (API)</a></p>
+            <p> <a href = "php/api.php" title = "Juego Php"> Juego php </a></p>
+        </nav>     
     </section>
     
     <main>
@@ -112,7 +115,6 @@
     <?php 
          if (count($_POST)>0) 
          {   
-
              $re = new Record(); 
              $re->mostrarMejores(); 
              $_POST = [];  
