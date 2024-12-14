@@ -6,7 +6,7 @@ class Api{
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
         }
-        this.setupMobileDrag();  
+        this.setupMobileDrag(); 
     }
 
     initEvents() {
@@ -32,29 +32,26 @@ class Api{
     setupMobileDrag() {
         const imgs = document.querySelectorAll('img'); // Nuestras "ruedas"
         const dropZone = document.querySelector('main > article');
-        const dropZoneRect = dropZone.getBoundingClientRect();
 
         let currentImg = null;
         let originalX = 0;
         let originalY = 0;
 
         imgs.forEach(img => {
-            // touchstart: guardar posición original
             img.addEventListener('touchstart', (e) => {
                 currentImg = e.target;
-                // Guardamos la posición original del elemento
+                // Guardamos la posición original
                 originalX = currentImg.offsetLeft;
                 originalY = currentImg.offsetTop;
             }, {passive: false});
 
             // touchmove: mover el elemento según el dedo
             img.addEventListener('touchmove', (e) => {
-                // Evitamos el scroll mientras movemos
                 e.preventDefault();
+                if(!currentImg) return;
                 const touch = e.targetTouches[0];
                 const pageX = touch.pageX - (currentImg.clientWidth / 2);
                 const pageY = touch.pageY - (currentImg.clientHeight / 2);
-
                 currentImg.style.position = 'absolute';
                 currentImg.style.left = pageX + 'px';
                 currentImg.style.top = pageY + 'px';
@@ -65,21 +62,28 @@ class Api{
                 e.preventDefault();
                 if(!currentImg) return;
 
-                // Obtenemos la posición final del elemento
-                const imgRect = currentImg.getBoundingClientRect();
+                // Obtenemos la posición final del toque
+                const finalTouch = e.changedTouches[0];
+                const finalX = finalTouch.clientX;
+                const finalY = finalTouch.clientY;
+                
+                const dropZoneRect = dropZone.getBoundingClientRect();
 
-                // Comprobamos si la imagen está dentro del dropZone
-                if (this.isInsideDropZone(imgRect, dropZoneRect)) {
-                    // Simulamos la acción de "drop"
-                    this.handleMobileDrop(currentImg.alt);
-                    // Posición inicial por defecto (para no dejar la imagen tirada en medio)
+                // Comprobamos si la posición final del dedo está dentro de la dropZone
+                if (finalX >= dropZoneRect.left && finalX <= dropZoneRect.right &&
+                    finalY >= dropZoneRect.top && finalY <= dropZoneRect.bottom) {
+                    
+                    // Soltamos la imagen dentro de la zona de estrategia
+                    dropZone.appendChild(currentImg);
                     currentImg.style.position = 'initial';
+                    
+                    // Llamamos a la lógica que simula el drop
+                    this.handleMobileDrop(currentImg.alt);
                 } else {
-                    // Volver a su posición original
+                    // Volvemos a la posición original
                     currentImg.style.left = originalX + 'px';
                     currentImg.style.top = originalY + 'px';
                 }
-
                 currentImg = null;
             }, {passive: false});
         });
