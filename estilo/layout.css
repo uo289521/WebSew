@@ -98,13 +98,6 @@ section nav {
     flex-wrap: wrap;
     gap: 2vw; 
 }
-section + h2 + section img {
-    touch-action: none; /* Desactiva el comportamiento táctil predeterminado */
-    cursor: grab;
-}
-section + h2 + section {
-    position: relative;
-}
 section nav a {
     text-decoration: none;
     color: #ffffff;
@@ -117,7 +110,9 @@ section nav a {
 section > h3{
     text-align: center;
 }
-
+section + h3 + section img{
+    touch-action: none;
+}
 section:nth-of-type(2)  p{
     text-align: center;
 }

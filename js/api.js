@@ -34,73 +34,24 @@ class Api{
         var bot = document.querySelector('main > button')
         bot.disabled = false; 
     }
-    handleTouchStart(event) {
-        event.preventDefault();
-        this.touchedElement = event.target; // Guardar el elemento tocado
-
-        // Guardar posición inicial del elemento
-        const rect = this.touchedElement.getBoundingClientRect();
-        const container = this.touchedElement.parentElement.getBoundingClientRect();
-
-        this.startX = event.touches[0].clientX;
-        this.startY = event.touches[0].clientY;
-        this.elementStartX = rect.left - container.left; // Posición relativa al contenedor
-        this.elementStartY = rect.top - container.top;
-
-        // Aplicar estilos para mover
-        this.touchedElement.style.position = 'absolute';
-        this.touchedElement.style.zIndex = 1000;
-        this.touchedElement.style.left = `${this.elementStartX}px`;
-        this.touchedElement.style.top = `${this.elementStartY}px`;
-    }
-    handleTouchMove(event) {
-        event.preventDefault();
-        if (!this.touchedElement) return;
-
-        // Calcular desplazamiento
-        const deltaX = event.touches[0].clientX - this.startX;
-        const deltaY = event.touches[0].clientY - this.startY;
-
-        // Mover el elemento
-        this.touchedElement.style.left = `${this.elementStartX + deltaX}px`;
-        this.touchedElement.style.top = `${this.elementStartY + deltaY}px`;
-    }
-    
-    
-    handleTouchEnd(event) {
-        event.preventDefault();
-        if (!this.touchedElement) return;
-
-        const touch = event.changedTouches[0];
-        const dropTarget = document.elementFromPoint(touch.clientX, touch.clientY);
-        const expectedArticle = document.querySelector('main > article');
-
-        if (dropTarget && dropTarget === expectedArticle) {
-            const strategyZone = expectedArticle.querySelector('p');
-            const tireType = this.touchedElement.alt; // Obtener el tipo de neumático
-            strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
-            const button = document.querySelector('main > button');
-            button.disabled = false; // Habilitar el botón de simulación
-        } else {
-            // Restaurar posición inicial si no es una zona válida
-            this.touchedElement.style.left = `${this.elementStartX}px`;
-            this.touchedElement.style.top = `${this.elementStartY}px`;
-        }
-
-        // Limpiar estilos y referencia
-        this.touchedElement.style.position = '';
-        this.touchedElement.style.zIndex = '';
-        this.touchedElement = null;
-    }
     
     
     initTouchEvents() {
         const draggableElements = document.querySelectorAll('picture > img'); 
         draggableElements.forEach((element) => {
             console.log(element)
-            element.addEventListener('touchstart', (event) => this.handleTouchStart(event));
-            element.addEventListener('touchmove', (event) => this.handleTouchMove(event));
-            element.addEventListener('touchend', (event) => this.handleTouchEnd(event));
+            element.addEventListener('touchmove' , function(e){
+                var touchLocation = e.targetTouches[0];
+    
+                // assign box new coordinates based on the touch.
+                box.style.left = touchLocation.pageX + 'px';
+                box.style.top = touchLocation.pageY + 'px';
+            });
+            element.addEventListener('touchend', function(e) {
+                // current box position.
+                var x = parseInt(box.style.left);
+                var y = parseInt(box.style.top);
+              }); 
         });
     }
     calcularParadasPits(vueltas, tipoNeumatico) {
