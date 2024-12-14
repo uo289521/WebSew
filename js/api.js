@@ -30,7 +30,7 @@ class Api{
         bot.disabled = false; 
     }
     setupMobileDrag() {
-        const imgs = document.querySelectorAll('img'); // Nuestras "ruedas"
+        const imgs = document.querySelectorAll('img'); // Las "ruedas"
         const dropZone = document.querySelector('main > article');
 
         let currentImg = null;
@@ -40,21 +40,16 @@ class Api{
         imgs.forEach(img => {
             img.addEventListener('touchstart', (e) => {
                 currentImg = e.target;
-                // Guardamos la posición original
+                // Guardamos la posición original (aunque ya no moveremos la imagen)
                 originalX = currentImg.offsetLeft;
                 originalY = currentImg.offsetTop;
             }, {passive: false});
 
-            // touchmove: mover el elemento según el dedo
+            // touchmove: ya no movemos la imagen
             img.addEventListener('touchmove', (e) => {
+                // Evitamos comportamiento por defecto para que no haga scroll
                 e.preventDefault();
-                if(!currentImg) return;
-                const touch = e.targetTouches[0];
-                const pageX = touch.pageX - (currentImg.clientWidth / 2);
-                const pageY = touch.pageY - (currentImg.clientHeight / 2);
-                currentImg.style.position = 'absolute';
-                currentImg.style.left = pageX + 'px';
-                currentImg.style.top = pageY + 'px';
+                // Aquí no cambiamos la posición de la imagen, no la movemos visualmente.
             }, {passive: false});
 
             // touchend: verificar si se suelta en la zona de drop
@@ -62,46 +57,30 @@ class Api{
                 e.preventDefault();
                 if(!currentImg) return;
 
-                // Obtenemos la posición final del toque
                 const finalTouch = e.changedTouches[0];
                 const finalX = finalTouch.clientX;
                 const finalY = finalTouch.clientY;
                 
                 const dropZoneRect = dropZone.getBoundingClientRect();
 
-                // Comprobamos si la posición final del dedo está dentro de la dropZone
+                // Comprobamos si la posición final del dedo está dentro del dropZone
                 if (finalX >= dropZoneRect.left && finalX <= dropZoneRect.right &&
                     finalY >= dropZoneRect.top && finalY <= dropZoneRect.bottom) {
                     
-                    // Soltamos la imagen dentro de la zona de estrategia
-                    dropZone.appendChild(currentImg);
-                    currentImg.style.position = 'initial';
-                    
-                    // Llamamos a la lógica que simula el drop
+                    // No movemos la imagen a la zona (no appendChild)
+                    // Simplemente ejecutamos la lógica de "drop" equivalente
                     this.handleMobileDrop(currentImg.alt);
                 } else {
-                    // Volvemos a la posición original
-                    currentImg.style.left = originalX + 'px';
-                    currentImg.style.top = originalY + 'px';
+                    // Si no está dentro, no pasa nada, la imagen nunca se movió
+                    // No hay necesidad de restaurar posición, puesto que no se alteró.
                 }
                 currentImg = null;
             }, {passive: false});
         });
     }
 
-    // Comprueba si el elemento está dentro del dropzone
-    isInsideDropZone(imgRect, dropZoneRect) {
-        // Verificamos si la imagen está dentro del rectángulo de la zona de drop
-        return (
-            imgRect.left >= dropZoneRect.left &&
-            imgRect.right <= dropZoneRect.right &&
-            imgRect.top >= dropZoneRect.top &&
-            imgRect.bottom <= dropZoneRect.bottom
-        );
-    }
-
     handleMobileDrop(tireType) {
-        // Replicamos la lógica del handleDrop cuando sueltas el neumático
+        // Aquí replicamos la lógica del handleDrop sin mover la imagen
         const strategyZone = document.querySelector('main > article > p');
         strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
         var bot = document.querySelector('main > button')
