@@ -29,3 +29,4 @@
 <!ATTLIST distancia unidad CDATA #REQUIRED>
 <!ATTLIST longitudCircuito medida CDATA #REQUIRED>
 <!ATTLIST anchura medida CDATA #REQUIRED>
+<!ATTLIST video formato CDATA #REQUIRED>
