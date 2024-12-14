@@ -2,16 +2,11 @@ class Api{
     constructor(){
         this.initEvents();
         this.loadStrategy();
-        this.initTouchEvents(); 
-        this.touchedElement = null; // Elemento que se está tocando
-        this.startX = 0; // Coordenada X inicial
-        this.startY = 0; // Coordenada Y inicial
-        this.elementStartX = 0; 
-        this.elementStartY = 0; // Posición Y inicial del elemento
         if(localStorage.getItem('raceStrategy')){
             var aux = document.querySelector('section > button ')
             aux.disabled = false; 
         }
+        this.handleMobileDrop(); 
     }
 
     initEvents() {
@@ -34,26 +29,81 @@ class Api{
         var bot = document.querySelector('main > button')
         bot.disabled = false; 
     }
-    
-    
-    initTouchEvents() {
-        const draggableElements = document.querySelectorAll('picture > img'); 
-        draggableElements.forEach((element) => {
-            console.log(element)
-            element.addEventListener('touchmove' , function(e){
-                var touchLocation = e.targetTouches[0];
-    
-                // assign box new coordinates based on the touch.
-                box.style.left = touchLocation.pageX + 'px';
-                box.style.top = touchLocation.pageY + 'px';
-            });
-            element.addEventListener('touchend', function(e) {
-                // current box position.
-                var x = parseInt(box.style.left);
-                var y = parseInt(box.style.top);
-              }); 
+    setupMobileDrag() {
+        const imgs = document.querySelectorAll('img'); // Nuestras "ruedas"
+        const dropZone = document.querySelector('main > article');
+        const dropZoneRect = dropZone.getBoundingClientRect();
+
+        let currentImg = null;
+        let originalX = 0;
+        let originalY = 0;
+
+        imgs.forEach(img => {
+            // touchstart: guardar posición original
+            img.addEventListener('touchstart', (e) => {
+                currentImg = e.target;
+                // Guardamos la posición original del elemento
+                originalX = currentImg.offsetLeft;
+                originalY = currentImg.offsetTop;
+            }, {passive: false});
+
+            // touchmove: mover el elemento según el dedo
+            img.addEventListener('touchmove', (e) => {
+                // Evitamos el scroll mientras movemos
+                e.preventDefault();
+                const touch = e.targetTouches[0];
+                const pageX = touch.pageX - (currentImg.clientWidth / 2);
+                const pageY = touch.pageY - (currentImg.clientHeight / 2);
+
+                currentImg.style.position = 'absolute';
+                currentImg.style.left = pageX + 'px';
+                currentImg.style.top = pageY + 'px';
+            }, {passive: false});
+
+            // touchend: verificar si se suelta en la zona de drop
+            img.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                if(!currentImg) return;
+
+                // Obtenemos la posición final del elemento
+                const imgRect = currentImg.getBoundingClientRect();
+
+                // Comprobamos si la imagen está dentro del dropZone
+                if (this.isInsideDropZone(imgRect, dropZoneRect)) {
+                    // Simulamos la acción de "drop"
+                    this.handleMobileDrop(currentImg.alt);
+                    // Posición inicial por defecto (para no dejar la imagen tirada en medio)
+                    currentImg.style.position = 'initial';
+                } else {
+                    // Volver a su posición original
+                    currentImg.style.left = originalX + 'px';
+                    currentImg.style.top = originalY + 'px';
+                }
+
+                currentImg = null;
+            }, {passive: false});
         });
     }
+
+    // Comprueba si el elemento está dentro del dropzone
+    isInsideDropZone(imgRect, dropZoneRect) {
+        // Verificamos si la imagen está dentro del rectángulo de la zona de drop
+        return (
+            imgRect.left >= dropZoneRect.left &&
+            imgRect.right <= dropZoneRect.right &&
+            imgRect.top >= dropZoneRect.top &&
+            imgRect.bottom <= dropZoneRect.bottom
+        );
+    }
+
+    handleMobileDrop(tireType) {
+        // Replicamos la lógica del handleDrop cuando sueltas el neumático
+        const strategyZone = document.querySelector('main > article > p');
+        strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
+        var bot = document.querySelector('main > button')
+        bot.disabled = false; 
+    }
+    
     calcularParadasPits(vueltas, tipoNeumatico) {
         var paradasPits = 0;
     
