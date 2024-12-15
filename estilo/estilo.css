@@ -22,7 +22,7 @@ body{
 }
 /*Especificacion 001 */
 header{
-    background-color: #1E1C1A ;
+    background-color: #D1A05C ;
     /* color heredado de body*/
     padding: 2%;
     gap: calc(15vw + 5%) 0;
@@ -30,7 +30,7 @@ header{
 
 /*Especificacion 001 */
 h1{
-    color: #aaa;
+    color: #0D1C17;
     /*background-color heredado de header*/
     text-decoration: none;
    
@@ -44,7 +44,7 @@ nav{
 
 /*Especificacion 003 */
 header nav a{
-    color: #fff;
+    color: #000033;
      /*background-color heredado de header*/
     padding: 0.5em 3em;   
     border: 1vw;
@@ -57,7 +57,7 @@ table{
 /*Especificacion 002 */
 header a{
     /*background-color heredado de body*/
-    color: #fff;
+    color: #0E1F1A;
     text-decoration: none;
     padding: 1em;
 }
@@ -114,7 +114,6 @@ section nav a {
 }
 @media(max-width:465px){
     /*Especificacion 002 */
-    /* Me aseguro que en moviles no se vean las migas */
     header + p {
         display: none
     }
