@@ -7,6 +7,22 @@ header {
     display: flex;
     flex-direction: row;
 }
+@media(max-width: 550px) {
+    header {
+        /* Cambia la dirección de la distribución dentro del header */
+        flex-direction: column;
+        align-items: center; /* Opcional, para centrar */
+        gap: 0; 
+    }
+
+    header nav {
+        /* Lo mismo para el nav */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Opcional */
+        gap: 3vw; /* Espacio vertical entre los enlaces */
+    }
+}
 
 /*Especificacion 002 */
 main+div {

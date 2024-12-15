@@ -1,4 +1,4 @@
-    <?php 
+<?php 
             class Record{
                 public $server; 
                 public $user; 
@@ -10,6 +10,38 @@
                     $this->user = "DBUSER2024"; 
                     $this->pass = "DBPSWD2024"; 
                     $this->dbname = "records"; 
+                }
+                public function verificarYCrearDB() {
+                    $db = new mysqli($this->server, $this->user, $this->pass);
+            
+                    if ($db->connect_error) {
+                        exit("<h2>ERROR de conexión: " . $db->connect_error . "</h2>");
+                    }
+            
+                    // Verificar si la base de datos existe
+                    $resultado = $db->query("SHOW DATABASES LIKE '{$this->dbname}'");
+                    if ($resultado->num_rows === 0) {
+         
+                        $db->query("CREATE DATABASE {$this->dbname}"); 
+                            
+                    }
+
+                    $db->select_db($this->dbname);
+
+                    $resultado = $db->query("SHOW TABLES LIKE 'registro'");
+                    if ($resultado->num_rows === 0) {
+                        // Crear la tabla 'registro'
+                        $sql = "CREATE TABLE registro (
+                                    id INT AUTO_INCREMENT PRIMARY KEY,
+                                    nombre VARCHAR(50) NOT NULL,
+                                    apellidos VARCHAR(50) NOT NULL,
+                                    nivel FLOAT NOT NULL,
+                                    tiempo INT NOT NULL
+                                )";
+                        $db->query($sql); 
+
+                    }
+                $db->close();
                 }
 
                 public function mostrarMejores(){
@@ -34,6 +66,7 @@
     if (count($_POST)>0) 
     {   
         $re = new Record(); 
+        $re->verificarYCrearDB();
         $formularioPOST  = $_POST;
         try {
 
