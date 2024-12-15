@@ -4,7 +4,7 @@
 #080808 = Negro 
 #D1A05C = MarronClaro
 #BD9242 = Dorado
-#122620 = Verde oscuro
+#0D1C17 = Verde oscuro
 #000033 = Morado 
 #000075 = AzulMarino 
 #762D2D = Marrón
@@ -22,7 +22,7 @@ body{
 }
 /*Especificacion 001 */
 header{
-    background-color: #D1A05C ;
+    background-color: #1E1C1A ;
     /* color heredado de body*/
     padding: 2%;
     gap: calc(15vw + 5%) 0;
@@ -30,22 +30,22 @@ header{
 
 /*Especificacion 001 */
 h1{
-    color: #122620;
-    /*background-color heredado de body*/
+    color: #aaa;
+    /*background-color heredado de header*/
     text-decoration: none;
    
 }
 /*Especificacion 001 */
 nav{
     color: #BD9242;
-     /*background-color heredado de body*/ 
+     /*background-color heredado de header*/ 
     padding: 1%
 }
 
 /*Especificacion 003 */
 header nav a{
-    color: #000033;
-     /*background-color heredado de body*/
+    color: #fff;
+     /*background-color heredado de header*/
     padding: 0.5em 3em;   
     border: 1vw;
 }
@@ -57,7 +57,7 @@ table{
 /*Especificacion 002 */
 header a{
     /*background-color heredado de body*/
-    color: #122620;
+    color: #fff;
     text-decoration: none;
     padding: 1em;
 }
@@ -114,6 +114,7 @@ section nav a {
 }
 @media(max-width:465px){
     /*Especificacion 002 */
+    /* Me aseguro que en moviles no se vean las migas */
     header + p {
         display: none
     }

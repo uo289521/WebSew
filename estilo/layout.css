@@ -8,19 +8,19 @@ header {
     flex-direction: row;
 }
 @media(max-width: 550px) {
+    /*Especificacion 001 */
     header {
-        /* Cambia la dirección de la distribución dentro del header */
+        /* Redefino el flex-direction para ver el menu en dispositovs moviles de una manera mas accesible   */
         flex-direction: column;
-        align-items: center; /* Opcional, para centrar */
+        align-items: center; 
         gap: 0; 
     }
-
+    /*Especificacion 002 */
     header nav {
-        /* Lo mismo para el nav */
         display: flex;
         flex-direction: column;
-        align-items: center; /* Opcional */
-        gap: 3vw; /* Espacio vertical entre los enlaces */
+        align-items: center; 
+        gap: 3vw; 
     }
 }
 
