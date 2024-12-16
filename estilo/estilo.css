@@ -26,6 +26,7 @@ header{
     /* color heredado de body*/
     padding: 2%;
     gap: calc(15vw + 5%) 0;
+    border: 0.3rem solid #000; 
 }
 
 /*Especificacion 001 */
