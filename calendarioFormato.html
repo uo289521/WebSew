@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <title>Formula1-Calendario</title>
+    <meta name="author" content="David Rodriguez Chanca">
+    <meta name="description" content="Meteorologia de la formula1">
+    <meta name="keywords" content="F1 Formula1 FormulaUno calendario">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="estilo/agenda-grid.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type="image/vnd.microsoft.icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/agenda.js"></script>
+</head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+     <header>
+        <h1> <a href="index.html" title="Inicio"> F1 Desktop </a> </h1>
+         <nav>
+             <a href="index.html" title="index">Inicio</a>
+             <a href="piloto.html" title="piloto">Piloto</a>
+             <a href="noticias.html" title="noticias">Noticias</a>
+             <a class="active" href="calendario.html" title="calendario">Calendario</a>
+             <a href="meteorologia.html" title="meteorologia">Meteorologia</a>
+             <a href="circuito.html" title="circuito">Circuito</a>
+             <a href="viajes.php" title="viajes">Viajes</a>
+             <a href="juegos.html" title="juegos">Juegos</a>
+         </nav>
+         
+        </header>
+        
+        <p>Estas en: <a href="index.html" title="inicio">Inicio</a> &gt;&gt; Calendario</p>
+        <h2>Calendario en los circuitos</h2>
+        <main>
+            <button onclick="age.contruirCarreras()">Consultar Temporada</button>
+        
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Bahrain_International_Circuit" title="Wikipedia" target="_blank"> Bahrain Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Bahrain International Circuit</p>
+                    <p><strong>Coordenadas:</strong> 26.0325, 50.5106</p>
+                    <p><strong>Fecha:</strong> 2024-03-02</p>
+                    <p><strong>Hora:</strong> 15:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Jeddah_Street_Circuit" title="Wikipedia" target="_blank"> Saudi Arabian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Jeddah Corniche Circuit</p>
+                    <p><strong>Coordenadas:</strong> 21.6319, 39.1044</p>
+                    <p><strong>Fecha:</strong> 2024-03-09</p>
+                    <p><strong>Hora:</strong> 17:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit" title="Wikipedia" target="_blank"> Australian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Albert Park Grand Prix Circuit</p>
+                    <p><strong>Coordenadas:</strong> -37.8497, 144.968</p>
+                    <p><strong>Fecha:</strong> 2024-03-24</p>
+                    <p><strong>Hora:</strong> 04:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Suzuka_Circuit" title="Wikipedia" target="_blank"> Japanese Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Suzuka Circuit</p>
+                    <p><strong>Coordenadas:</strong> 34.8431, 136.541</p>
+                    <p><strong>Fecha:</strong> 2024-04-07</p>
+                    <p><strong>Hora:</strong> 05:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Shanghai_International_Circuit" title="Wikipedia" target="_blank"> Chinese Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Shanghai International Circuit</p>
+                    <p><strong>Coordenadas:</strong> 31.3389, 121.22</p>
+                    <p><strong>Fecha:</strong> 2024-04-21</p>
+                    <p><strong>Hora:</strong> 07:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Miami_International_Autodrome" title="Wikipedia" target="_blank"> Miami Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Miami International Autodrome</p>
+                    <p><strong>Coordenadas:</strong> 25.9581, -80.2389</p>
+                    <p><strong>Fecha:</strong> 2024-05-05</p>
+                    <p><strong>Hora:</strong> 20:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Autodromo_Enzo_e_Dino_Ferrari" title="Wikipedia" target="_blank"> Emilia Romagna Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Autodromo Enzo e Dino Ferrari</p>
+                    <p><strong>Coordenadas:</strong> 44.3439, 11.7167</p>
+                    <p><strong>Fecha:</strong> 2024-05-19</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_de_Monaco" title="Wikipedia" target="_blank"> Monaco Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit de Monaco</p>
+                    <p><strong>Coordenadas:</strong> 43.7347, 7.42056</p>
+                    <p><strong>Fecha:</strong> 2024-05-26</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_Gilles_Villeneuve" title="Wikipedia" target="_blank"> Canadian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit Gilles Villeneuve</p>
+                    <p><strong>Coordenadas:</strong> 45.5, -73.5228</p>
+                    <p><strong>Fecha:</strong> 2024-06-09</p>
+                    <p><strong>Hora:</strong> 18:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_de_Barcelona-Catalunya" title="Wikipedia" target="_blank"> Spanish Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit de Barcelona-Catalunya</p>
+                    <p><strong>Coordenadas:</strong> 41.57, 2.26111</p>
+                    <p><strong>Fecha:</strong> 2024-06-23</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Red_Bull_Ring" title="Wikipedia" target="_blank"> Austrian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Red Bull Ring</p>
+                    <p><strong>Coordenadas:</strong> 47.2197, 14.7647</p>
+                    <p><strong>Fecha:</strong> 2024-06-30</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Silverstone_Circuit" title="Wikipedia" target="_blank"> British Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Silverstone Circuit</p>
+                    <p><strong>Coordenadas:</strong> 52.0786, -1.01694</p>
+                    <p><strong>Fecha:</strong> 2024-07-07</p>
+                    <p><strong>Hora:</strong> 14:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Hungaroring" title="Wikipedia" target="_blank"> Hungarian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Hungaroring</p>
+                    <p><strong>Coordenadas:</strong> 47.5789, 19.2486</p>
+                    <p><strong>Fecha:</strong> 2024-07-21</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_de_Spa-Francorchamps" title="Wikipedia" target="_blank"> Belgian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit de Spa-Francorchamps</p>
+                    <p><strong>Coordenadas:</strong> 50.4372, 5.97139</p>
+                    <p><strong>Fecha:</strong> 2024-07-28</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_Zandvoort" title="Wikipedia" target="_blank"> Dutch Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit Park Zandvoort</p>
+                    <p><strong>Coordenadas:</strong> 52.3888, 4.54092</p>
+                    <p><strong>Fecha:</strong> 2024-08-25</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza" title="Wikipedia" target="_blank"> Italian Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Autodromo Nazionale di Monza</p>
+                    <p><strong>Coordenadas:</strong> 45.6156, 9.28111</p>
+                    <p><strong>Fecha:</strong> 2024-09-01</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Baku_City_Circuit" title="Wikipedia" target="_blank"> Azerbaijan Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Baku City Circuit</p>
+                    <p><strong>Coordenadas:</strong> 40.3725, 49.8533</p>
+                    <p><strong>Fecha:</strong> 2024-09-15</p>
+                    <p><strong>Hora:</strong> 11:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Marina_Bay_Street_Circuit" title="Wikipedia" target="_blank"> Singapore Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Marina Bay Street Circuit</p>
+                    <p><strong>Coordenadas:</strong> 1.2914, 103.864</p>
+                    <p><strong>Fecha:</strong> 2024-09-22</p>
+                    <p><strong>Hora:</strong> 12:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Circuit_of_the_Americas" title="Wikipedia" target="_blank"> United States Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Circuit of the Americas</p>
+                    <p><strong>Coordenadas:</strong> 30.1328, -97.6411</p>
+                    <p><strong>Fecha:</strong> 2024-10-20</p>
+                    <p><strong>Hora:</strong> 19:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Hermanos_Rodr%C3%ADguez" title="Wikipedia" target="_blank"> Mexico City Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Autódromo Hermanos Rodríguez</p>
+                    <p><strong>Coordenadas:</strong> 19.4042, -99.0907</p>
+                    <p><strong>Fecha:</strong> 2024-10-27</p>
+                    <p><strong>Hora:</strong> 20:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace" title="Wikipedia" target="_blank"> São Paulo Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Autódromo José Carlos Pace</p>
+                    <p><strong>Coordenadas:</strong> -23.7036, -46.6997</p>
+                    <p><strong>Fecha:</strong> 2024-11-03</p>
+                    <p><strong>Hora:</strong> 17:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="https://en.wikipedia.org/wiki/Las_Vegas_Grand_Prix#Circuit" title="Wikipedia" target="_blank"> Las Vegas Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Las Vegas Strip Street Circuit</p>
+                    <p><strong>Coordenadas:</strong> 36.1147, -115.173</p>
+                    <p><strong>Fecha:</strong> 2024-11-23</p>
+                    <p><strong>Hora:</strong> 06:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Losail_International_Circuit" title="Wikipedia" target="_blank"> Qatar Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Losail International Circuit</p>
+                    <p><strong>Coordenadas:</strong> 25.49, 51.4542</p>
+                    <p><strong>Fecha:</strong> 2024-12-01</p>
+                    <p><strong>Hora:</strong> 17:00:00</p>
+                </article>
+            
+                <article>
+                    <h3> <a href="http://en.wikipedia.org/wiki/Yas_Marina_Circuit" title="Wikipedia" target="_blank"> Abu Dhabi Grand Prix </a></h3>
+                    <p><strong>Circuito:</strong> Yas Marina Circuit</p>
+                    <p><strong>Coordenadas:</strong> 24.4672, 54.6031</p>
+                    <p><strong>Fecha:</strong> 2024-12-08</p>
+                    <p><strong>Hora:</strong> 13:00:00</p>
+                </article>
+            </main>
+
+
+
+</body></html>
