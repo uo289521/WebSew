@@ -18,6 +18,9 @@ class Agenda{
         });
     }
     contruirCarreras(){       
+        if($("main").length > 0){
+            $("main").empty(); 
+        } 
         $.ajax({
             url: this.url, 
             method: "GET", 

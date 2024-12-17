@@ -38,7 +38,7 @@ class Pais{
     }
 
     escribirCoordenadas(){
-        var info = `<h3> Informacion del País </h3>`
+        var info = `<h2> Informacion del País </h2>`
         info += `<p> País:  ${this.nombre} </p> `; 
         info += `<p> Capital: ${this.capital} </p> `; 
         var lista = this.informacionSecundaria(); 
