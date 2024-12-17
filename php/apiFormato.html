@@ -1,0 +1,134 @@
+<html lang="es"><head>
+  
+    <meta charset="UTF-8">
+    <title>Formula1-Juegos</title>
+    <meta name="author" content="David Rodriguez Chanca">
+    <meta name="description" content="Meteorologia de la formula1">
+    <meta name="keywords" content="F1 Formula1 FormulaUno Juegos">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css">
+    <link rel="stylesheet" type="text/css" href="api.css">
+    <link rel="icon" href="../multimedia/imagenes/favicon.ico" sizes="48x48" type="image/vnd.microsoft.icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <header>
+        <h1> <a href="../index.html" title="Inicio"> F1 Desktop </a> </h1>
+        <nav>
+            <a href="../index.html" title="index">Inicio</a>
+            <a href="../piloto.html" title="piloto">Piloto</a>
+            <a href="../noticias.html" title="noticias">Noticias</a>
+            <a href="../calendario.html" title="calendario">Calendario</a>
+            <a href="../meteorologia.html" title="meteorologia">Meteorologia</a>
+            <a href="../circuito.html" title="circuito">Circuito</a>
+            <a href="../viajes.php" title="viajes">Viajes</a>
+            <a class="active" href="../juegos.html" title="juegos">Juegos</a>
+        </nav>
+    </header>
+    <p>Estas en: <a href="../index.html" title="inicio">Inicio</a> &gt;&gt; <a href="../juegos.html" title="Juegos">Juegos</a>&gt;&gt; Simulador economico php </p>
+    <h2>Juegos sobre la Formula1</h2>
+    <section>
+    <h3>Menu de juegos:  </h3>
+    <nav>
+        <p> <a href="../memoria.html" title="Juego memoria">Juego de memoria</a></p><p> 
+        </p><p> <a href="../semaforo.php" title="Juego semaforo">Juego del semaforo</a></p>
+        <p> <a href="../api.html" title="API">Estrategia circuitos (API)</a></p>
+        <p> <a href="api.php" title="Simulador economico php"> Simulador economico php </a></p>
+    </nav>
+
+</section>
+<h2> Simulador economico php </h2>
+<main>
+        <section>
+            <h4>Circuito</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvCircuitoLighthouse">Selecciona un archivo CSV de Circuitos:</label>
+                <input type="file" name="circuito" id="csvCircuitoLighthouse">
+                <input type="submit" name="submitCircuito" value="Enviar">
+            </form>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvCircuitoExpLighthouse">Exportar datos circuito en un csv</label>
+                <input type="submit" name="submitCircuitoCsv" value="Exportar" id="csvCircuitoExpLighthouse">
+            </form>
+
+        </section>
+
+        <section>
+            <h4>Empresa de Gasolina</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvEmpresaGasolinaLighthouse">Selecciona un archivo CSV de Empresas de Gasolina:</label>
+                <input type="file" name="empresaGasolina" id="csvEmpresaGasolinaLighthouse">
+                <input type="submit" name="submitEmpresaGasolina" value="Enviar">
+            </form>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvEmpresaGasolinaExpLighthouse">Exportar datos empresa gasolina en un csv</label>
+                <input type="submit" name="submitEmpresaGasolinacsv" id="csvEmpresaGasolinaExpLighthouse" value="Exportar">
+            </form>
+        </section>
+
+        <section>
+            <h4>Escudería</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvEscuderiaLighthouse">Selecciona un archivo CSV de Escuderías:</label>
+                <input type="file" name="escuderia" id="csvEscuderiaLighthouse">
+                <input type="submit" name="submitEscuderia" value="Enviar">
+            </form>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvEscuderiaExpLighthouse">Exportar datos escuderia en un csv</label>
+                <input type="submit" name="submitEscuderiaCsv" value="Exportar" id="csvEscuderiaExpLighthouse">
+            </form>
+
+        </section>
+
+        <section>
+            <h4>Patrocinador</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvPatrocinadorLighthouse">Selecciona un archivo CSV de Patrocinadores:</label>
+                <input type="file" name="patrocinador" id="csvPatrocinadorLighthouse">
+                <input type="submit" name="submitPatrocinador" value="Enviar">
+            </form>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvPatrocinadorLighthouseExp">Exportar datos patrocinadores en un csv</label>
+                <input type="submit" name="submitPatrocinadorcsv" value="Exportar" id="csvPatrocinadorLighthouseExp">
+            </form>
+        </section>
+
+        <section>
+            <h4>Coche F1</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvF1Lighthouse">Selecciona un archivo CSV de Coches F1:</label>
+                <input type="file" name="f1" id="csvF1Lighthouse">
+                <input type="submit" name="submitF1" value="Enviar">
+            </form>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label for="csvF1ExpLighthouse">Exportar datos coches F1 en un csv</label>
+                <input type="submit" name="submitCochesF1csv" value="Exportar" id="csvF1ExpLighthouse">
+            </form>
+        </section>
+</main>
+    <section>
+        <h4>Verificar Rentabilidad</h4>
+        <form method="POST">
+            <label>Nombre del Circuito:</label>
+            <input type="text" name="nombreCircuito" placeholder="Ej: Silverstone    (Case Sensitive)" required="">
+
+            <label>Nombre de la escuderia:</label>
+            <input type="text" name="nombreEmpresa" placeholder="Ej: Ferrari    (Case Sensitive)" required="">
+
+            <input type="submit" name="verificarRentabilidad" value="Verificar Rentabilidad">
+        </form>
+    </section>
+    
+
+    
+
+
+</body></html>

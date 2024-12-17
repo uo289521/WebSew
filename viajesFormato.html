@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+    <!-- Datos que describen el documento -->
+    <meta charset="UTF-8">
+    <title>Formula1-Viajes</title>
+    <meta name="author" content="David Rodriguez Chanca">
+    <meta name="description" content="Meteorologia de la formula1">
+    <meta name="keywords" content="F1 Formula1 FormulaUno Viajes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css">
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css">
+    <link rel="icon" href="multimedia/imagenes/favicon.ico" sizes="48x48" type="image/vnd.microsoft.icon">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="js/viajes.js"></script>
+    
+<script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/59/3a/intl/es_ALL/util.js"></script></head>
+
+<body>
+    <!-- Datos con el contenidos que aparece en el navegador -->
+    <header>
+        <h1> <a href="index.html" title="Inicio"> F1 Desktop </a> </h1>
+        <nav>
+            <a href="index.html" title="index">Inicio</a>
+            <a href="piloto.html" title="piloto">Piloto</a>
+            <a href="noticias.html" title="noticias">Noticias</a>
+            <a href="calendario.html" title="calendario">Calendario</a>
+            <a href="meteorologia.html" title="meteorologia">Meteorologia</a>
+            <a href="circuito.html" title="circuito">Circuito</a>
+            <a class="active" href="viajes.php" title="viajes">Viajes</a>
+            <a href="juegos.html" title="juegos">Juegos</a>
+        </nav>
+        
+    </header>
+    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> &gt;&gt; Viajes</p>
+    <h2>Viajes para ver los circuitos</h2>
+    <main>       
+        <button onclick="viaje.solicitarUbicacion()">Obtener mapas</button>
+    </main>
+    <div></div>
+    <section>
+        <h3> Carrusel de fotos </h3><img alt="foto carrusel The Sunset Mountains" src="https://live.staticflickr.com/65535/54198137931_72800f2e3b_m.jpg"><img alt="foto carrusel On the streets of Madrid" src="https://live.staticflickr.com/65535/54210275994_0054495442_m.jpg"><img alt="foto carrusel on the train" src="https://live.staticflickr.com/65535/54208822851_c156104470_m.jpg"><img alt="foto carrusel Jumbo Tomatoes" src="https://live.staticflickr.com/65535/54208538961_0a6cb479bd_m.jpg"><img alt="foto carrusel Plaza de Oriente, Madrid" src="https://live.staticflickr.com/65535/54208300101_d704feb46b_m.jpg"><img alt="foto carrusel Sin título" src="https://live.staticflickr.com/65535/54208260231_bb60e53865_m.jpg"><img alt="foto carrusel PA222554-Edit" src="https://live.staticflickr.com/65535/54207630995_1e8b710bc4_m.jpg"><img alt="foto carrusel With cellphone" src="https://live.staticflickr.com/65535/54206237272_ea0437de0a_m.jpg"><img alt="foto carrusel Juan Carlos I Park LXV" src="https://live.staticflickr.com/65535/54206265564_672787f3bc_m.jpg"><img alt="foto carrusel TANGO ESPAÑA -RED- OFFICIAL FIFA WORLD CUP ESPAÑA 1982 ADIDAS MATCH BALL 11" src="https://live.staticflickr.com/65535/54205892136_0f33925c31_m.jpg">        <button aria-label="Acceder a la siguiente imagen "> &gt; </button>
+        <button aria-label="Acceder a la anterior imagen"> &lt; </button>
+        
+        <script>
+            viaje.introducirCarrusel();
+        </script>
+    </section>
+    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5XJXQlR3GEcw181_kq5vrdq301GTIgI&amp;"></script>
+    
+    <article>
+        <h3>Tipo de cambio</h3>
+        <p> El tipo de cambio actual es de 1 euro por 1.050029 dolares estadounidenses</p>    </article>
+
+
+
+
+</body></html>
