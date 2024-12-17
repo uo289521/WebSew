@@ -26,6 +26,7 @@ header{
     /* color heredado de body*/
     padding: 2%;
     gap: calc(15vw + 5%) 0;
+    border: 0.3rem solid #000; 
 }
 
 /*Especificacion 001 */
@@ -45,9 +46,9 @@ nav{
 /*Especificacion 003 */
 header nav a{
     color: #000033;
-     /*background-color heredado de header*/
-    padding: 0.5em 3em;   
-    border: 1vw;
+     /*background-color heredado de navS*/
+    padding: 1vw 2vw;   
+    border: 1vw 0vw;
 }
 /*Especificacion 001 */
 table{
@@ -56,7 +57,7 @@ table{
 
 /*Especificacion 002 */
 header a{
-    /*background-color heredado de body*/
+    /*background-color heredado de header*/
     color: #0E1F1A;
     text-decoration: none;
     padding: 1em;
@@ -112,10 +113,56 @@ section nav a {
     background: #000;
     border-radius: 1.5vw;
 }
+/*Especificacion 003 */
+header + p + h2{
+    text-align: center;
+}
+
+/*Especificacion 004 */
+main + div + section > button{
+    /* color heredado de body */
+    background-color: #fff;
+}
+
+/*Especificacion 002 */
+input::placeholder{
+    color: #000; 
+    font-style: italic;
+}
+
+
+
 @media(max-width:465px){
     /*Especificacion 002 */
     header + p {
         display: none
+    }
+     /*Especificacion 005 */
+    p + h2 + main button + img {
+        max-width: 100%;
+        height: auto;
+    }
+     /*Especificacion 004 */
+    main + section + article button{
+        margin: 2% 15%
+    }
+     /*Especificacion 003 */
+    header nav a {
+        font-size: 0.9rem; 
+        line-height: 1.2;  
+    }
+    /*Especificacion 002 */
+    header h1{
+        margin-bottom: 8%;  
+    }
+    /*Especificacion 002 */
+    header nav{
+        margin-top: 1%;
+    }
+     /*Especificacion 003 */
+    main + section input {
+        text-align: center;
+        margin: 4% 30% 4% 1%;
     }
 }
 

@@ -12,7 +12,7 @@ class Viajes {
 
     solicitarUbicacion() {
         var boton = document.querySelector("main > button");
-        boton.setAttribute('hidden', 'true'); 
+        boton.setAttribute('hidden', ''); 
         navigator.geolocation.getCurrentPosition(
             this.getPosicion.bind(this),
             this.verErrores.bind(this)
@@ -103,7 +103,6 @@ class Viajes {
         let curSlide = 9;
         // maximum number of slides
         let maxSlide = slides.length - 1;
-        console.log(maxSlide)
     
         nextSlide.addEventListener("click", function () {
 

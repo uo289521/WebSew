@@ -7,22 +7,6 @@ header {
     display: flex;
     flex-direction: row;
 }
-@media(max-width: 550px) {
-    /*Especificacion 001 */
-    header {
-        /* Redefino el flex-direction para ver el menu en dispositovs moviles de una manera mas accesible   */
-        flex-direction: column;
-        align-items: center; 
-        gap: 0; 
-    }
-    /*Especificacion 002 */
-    header nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        gap: 3vw; 
-    }
-}
 
 /*Especificacion 002 */
 main+div {
@@ -77,8 +61,6 @@ main+div+section>button {
     border-radius: 50%;
     z-index: 10;
     cursor: pointer;
-    /* color heredado de body*/
-    background-color: #fff;
     font-size: 1em;
     display: flex;
     flex-direction: column;
@@ -142,4 +124,23 @@ section + h3 + section img{
 /*Especificacion 012 */
 section:nth-of-type(2)  p{
     text-align: center;
+}
+
+
+@media(max-width: 465px) {
+    /*Especificacion 001 */
+    header {
+        /* Redefino el flex-direction para ver el menu en dispositovs moviles de una manera mas accesible   */
+        flex-direction: column;
+        align-items: center; 
+        gap: 0; 
+    }
+    /*Especificacion 002 */
+    header nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        gap: 1rem; 
+    }
+
 }

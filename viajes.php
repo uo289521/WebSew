@@ -33,10 +33,8 @@
                 for ($i = 0; $i < 10; $i++) {
                     $titulo = $json->items[$i]->title;
                     $URLfoto = $json->items[$i]->media->m;
-                    $aux =  array("_m.jpg" => "_b.jpg");
-                    $URLfoto = strtr($URLfoto, $aux);
+                    echo "<img alt='foto carrusel " . $titulo . "' src='" . $URLfoto . "' />";
 
-                    echo "<img alt='foto carrusel" . $titulo . "' src='" . $URLfoto . "' />";
                 }
             }
         }
@@ -55,7 +53,7 @@
 
         function getTipoCambio()
         {
-            $url = 'https://apilayer.net---Quitar----/api/live?';
+            $url = 'https://apilayer.net---QUITAR---/api/live?';
             $url .= 'access_key=' . $this->apiKey;
             $url .= '&currencies=' . $this->monedaCambio;
             $url .= '&source=' . $this->monedaLocal;
@@ -69,8 +67,7 @@
             }else{
                 $variable = $this->monedaLocal . $this->monedaCambio; 
                 $cambio = $json->quotes->$variable; 
-                echo "<h3> Tipo de cambio </h2>"; 
-                echo "<p> El tipo de cambio actual es de 1 euro por <strong>". $cambio . "</strong> dolares estadounidenses</p>"; 
+                echo "<p> El tipo de cambio actual es de 1 euro por ". $cambio . " dolares estadounidenses</p>"; 
                 
             }
         }
@@ -124,8 +121,8 @@
         $car = new Carrusel("Madrid", "Spain");
         $fotos = $car->cargarFotos();
         ?>
-        <button> &gt; </button>
-        <button> &lt; </button>
+        <button aria-label="Acceder a la siguiente imagen "> &gt; </button>
+        <button aria-label="Acceder a la anterior imagen"> &lt; </button>
         
         <script>
             viaje.introducirCarrusel();
@@ -134,6 +131,7 @@
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5XJXQlR3GEcw181_kq5vrdq301GTIgI&amp;"></script>
     
     <article>
+        <h3>Tipo de cambio</h3>
         <?php
             $m = new Moneda("EUR", "USD"); 
             $m->getTipoCambio(); 

@@ -38,7 +38,7 @@ class Pais{
     }
 
     escribirCoordenadas(){
-        var info = `<h3> Informacion del Pais </h3>`
+        var info = `<h3> Informacion del País </h3>`
         info += `<p> País:  ${this.nombre} </p> `; 
         info += `<p> Capital: ${this.capital} </p> `; 
         var lista = this.informacionSecundaria(); 
@@ -105,4 +105,4 @@ class Pais{
 }
 
 var p = new Pais("Spain", "Madrid","48797875"); 
-p.rellenar("Circuit de Barcelona-Catalunya", "Monarquia constitucional","41.57","2.26","Cristianismo");  
+p.rellenar("Circuit de Barcelona-Catalunya", "Monarquia parlamentaria","41.57","2.26","Cristianismo");  

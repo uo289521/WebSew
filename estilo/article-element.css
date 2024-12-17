@@ -31,7 +31,7 @@ article > h3 {
 }
 /*Especificacion 002 */
 article > p{
-    /*backgroun color heredado de article*/
+    /*background color heredado de article*/
     color: #fff; 
     padding-bottom: 1%;
 }

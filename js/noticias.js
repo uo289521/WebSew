@@ -55,8 +55,8 @@ class Noticias{
     }
     añadirNoticia(){
     var titulo = document.querySelector('input[type="text"]:nth-of-type(1)').value;
-    var cuerpo = document.querySelector('textarea').value;
-    var autor = document.querySelector('input[type="text"]:nth-of-type(2)').value;
+    var cuerpo = document.querySelector('input[type="text"]:nth-of-type(2)').value;
+    var autor = document.querySelector('input[type="text"]:nth-of-type(3)').value;
 
 
     if(titulo.length == 0 || cuerpo.length == 0 ||autor.length == 0){

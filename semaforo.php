@@ -129,15 +129,15 @@
             <a class= "active" href="juegos.html" title="juegos">Juegos</a>
         </nav>
     </header>
-    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href = "juegos.html" title ="Juegos">Juegos</a>> Semaforo</p>
+    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href = "juegos.html" title ="Juegos">Juegos</a>>> Juego de Semaforo</p>
     <h2>Juegos sobre la Formula1</h2>
     <section>
-        <h3>Diferentes juegos de la Formula1: </h3>
+        <h3>Menu de juegos:  </h3>
         <nav>
             <p> <a href= "memoria.html" title = "Juego memoria">Juego de memoria</a><p> 
             <p> <a href= "semaforo.php" title = "Juego semaforo">Juego del semaforo</a></p>
-            <p> <a href= "api.html" title = "API">Estregia circuitos (API)</a></p>
-            <p> <a href = "php/api.php" title = "Juego Php"> Juego php </a></p>
+            <p> <a href= "api.html" title = "API">Estrategia circuitos (API)</a></p>
+            <p> <a href = "php/api.php" title = "Simulador economico php"> Simulador economico php </a></p>
         </nav>     
     </section>
     

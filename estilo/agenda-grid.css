@@ -40,15 +40,13 @@ article > h3{
 /*Especificacion 002 */
 h3 a{
     text-decoration: none; 
-    /*background color heredado de article*/
-    color: inherit; 
-    font-size: inherit; 
-    font-weight: inherit; 
+    /*background color heredado de h3*/
+    color: #000000; 
  }
 
  /*Especificacion 012 */
  h3 a:hover {
-    /*background color heredado de article*/
+    /*background color heredado de h3 */
     color: #0000FF; 
     font-size: 1.2em; 
     text-decoration: underline;

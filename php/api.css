@@ -33,8 +33,8 @@ section {
     box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 0.1);
     border-radius: 0.5em;
     display: flex;
-    width: 100%; /* Asegurar consistencia en el ancho */
-    justify-content: space-between; /* Formularios alineados a izquierda y derecha */
+    width: 100%; 
+    justify-content: space-between; 
     flex-wrap: wrap; 
     gap: 1em; 
 }
@@ -46,12 +46,17 @@ main + section {
     max-width: 95%;
     align-items: center;
 }
+
+main section {
+    border: 0.3rem solid #000; 
+
+}
 /*Especificacion 011 */
 article:not(:first-of-type) {
-    background-color: #ffffff; /* Fondo blanco */
-    border-radius: 0.5rem; /* Bordes redondeados */
-    max-width: 95%; /* Ancho relativo para centrar */
-    padding: 1.5rem; /* Espaciado interno */
+    background-color: #ffffff; 
+    border-radius: 0.5rem; 
+    max-width: 95%; 
+    padding: 1.5rem; 
     box-shadow: 0 0.4em 0.6em rgba(0, 0, 0, 1); 
     text-align: center; 
     margin: 2rem auto; 
@@ -66,14 +71,14 @@ article p {
  
 }
 /*Especificacion 002 */
-article h3 {
-    font-size: 2rem; /* Tamaño de fuente relativo (~24px) */
-    margin-bottom: 1rem; /* Separación del título con los párrafos */
-    color: #006100; /* Verde oscuro */
+article h5 {
+    font-size: 2rem; 
+    margin-bottom: 1rem; 
+    color: #006100; 
     text-align: center; 
 }
 /*Especificacion 002 */
-section > h2 {
+section > h4 {
     width: 100%; 
     margin-bottom: 1em;
     font-size: 1.5rem;
@@ -103,4 +108,9 @@ form {
 /*Especificacion 022 */
 form input[type="submit"]:hover {
     font-size: 1.3rem;
+}
+
+/*Especificacion 002 */
+section + h2{
+    text-align: center;
 }

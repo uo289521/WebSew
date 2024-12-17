@@ -3,10 +3,10 @@ class Api{
         this.initEvents();
         this.loadStrategy();
         if(localStorage.getItem('raceStrategy')){
-            var aux = document.querySelector('section +article  button ')
+            var aux = document.querySelector('section + article  button ')
             aux.disabled = false; 
         }
-        this.setupMobileDrag(); 
+        this.dragEnMoviles(); 
     }
 
     initEvents() {
@@ -24,14 +24,14 @@ class Api{
     handleDrop(event) {
         event.preventDefault();
         const tireType = event.dataTransfer.getData('text'); 
-        const strategyZone = document.querySelector('main > article > p');
+        const strategyZone = document.querySelector('main > p');
         strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
         var bot = document.querySelector('main > button')
         bot.disabled = false; 
     }
-    setupMobileDrag() {
+    dragEnMoviles() {
         var imgs = document.querySelectorAll('img'); 
-        var dropZone = document.querySelector('main > article');
+        var dropZone = document.querySelector('main');
 
         var currentImg = null;
         var originalX = 0;
@@ -64,10 +64,10 @@ class Api{
     }
 
     handleMobileDrop(tireType) {
-        const strategyZone = document.querySelector('main > article > p');
+        const strategyZone = document.querySelector('main > p');
         strategyZone.textContent = `Has seleccionado neumáticos: ${tireType}`;
         var bot = document.querySelector('main > button')
-        bot.disabled = False; 
+        bot.disabled = false; 
     }
     
     calcularParadasPits(vueltas, tipoNeumatico) {
@@ -101,10 +101,10 @@ class Api{
     }
     
     simulateRace(){
-    var vueltasInput = document.querySelector('section >input');
+    var vueltasInput = document.querySelector('section > input');
     var vueltas = parseInt(vueltasInput.value, 10);
 
-    var zonaEstrategia = document.querySelector('main > article > p');
+    var zonaEstrategia = document.querySelector('main > p');
     var tipoNeumatico = zonaEstrategia.textContent.split(': ')[1]; 
 
     if (!tipoNeumatico) {
@@ -137,17 +137,21 @@ class Api{
     var tiempo = tiempoTotalVueltas + tiempoPits;
 
   
-    var elementoResultado = document.querySelector('section > article > p');
+    var elementoResultado = document.querySelector('section:last-of-type > p');
 
     elementoResultado.textContent = `Neumaticos: ${tipoNeumatico}, vueltas: ${vueltas}, paradas en pits: ${paradasPits}, tiempo total estimado: ${tiempo} minutos.`;
     this.saveStrategy( vueltas, tipoNeumatico, tiempo );
 
-    var botonLimpiar = document.querySelector('section +article  button'); 
+
+    var botonLimpiar = document.querySelector('section + article  button'); 
     botonLimpiar.disabled = false;
     }
+
     saveStrategy(vueltas, tipoNeumatico, tiempo) {
-        var nombre = document.querySelector(`main > input`).value; 
+        let nombre = document.querySelector(`main > input`).value; 
         if(nombre){
+            let tituloResultado = document.querySelector('section:last-of-type > h2'); 
+            tituloResultado.textContent = `Analisis ${nombre}`
             localStorage.setItem(nombre, `${vueltas},${tipoNeumatico},${tiempo}`);
         }
         localStorage.setItem('raceStrategy', `${vueltas},${tipoNeumatico},${tiempo}`);
@@ -158,12 +162,12 @@ class Api{
     
         if (strategy) {
             var [vueltas, tipoNeumatico, tiempo] = strategy.split(',');
-            var strategyZone = document.querySelector('main > article > p');
+            var strategyZone = document.querySelector('main > p');
             strategyZone.textContent = `Has seleccionado neumáticos: ${tipoNeumatico}`;
-            var resultElement = document.querySelector('section > article > p');
+            var resultElement = document.querySelector('section:last-of-type > p');
             resultElement.textContent = `Neumaticos: ${tipoNeumatico}, vueltas: ${vueltas}, paradas en pits: ${this.calcularParadasPits(vueltas, tipoNeumatico)}, tiempo total estimado: ${tiempo} minutos.`;
 
-            var tituloResultado = document.querySelector('section > article > h2'); 
+            var tituloResultado = document.querySelector('section:last-of-type > h2'); 
             tituloResultado.textContent = 'Analisis anterior'
         }
     }
@@ -178,30 +182,28 @@ class Api{
 
     limpiarMemoria(){
         localStorage.clear(); 
-        var tituloResultado = document.querySelector('section > article > h2'); 
+        var tituloResultado = document.querySelector('section:last-of-type > h2'); 
         tituloResultado.textContent = 'Analisis'; 
 
-        var analisisResultado = document.querySelector('section > article > p'); 
+        var analisisResultado = document.querySelector('section:last-of-type > p'); 
         analisisResultado.textContent  = "Aqui se mostrara el resultado de la simulacion"; 
 
-        var zonaEstrategiaTexto = document.querySelector('main > article > p'); 
+        var zonaEstrategiaTexto = document.querySelector('main > p'); 
         zonaEstrategiaTexto.textContent = "Deberas arrastar aqui los neumaticos para escoger la estrategia"; 
 
     }
 
     cargarEstrategiaAntigua(){
-        var nombreEstrategia = document.querySelector('section + article input')
+        var nombreEstrategia = document.querySelector('section + article input'); 
         var estrategia = localStorage.getItem(nombreEstrategia.value); 
         if (estrategia) {
-
-
             var [vueltas, tipoNeumatico, tiempo] = estrategia.split(',');
-            var strategyZone = document.querySelector('main > article > p');
+            var strategyZone = document.querySelector('main > p');
             strategyZone.textContent = `Has seleccionado neumáticos: ${tipoNeumatico}`;
-            var resultElement = document.querySelector('section > article > p');
+            var resultElement = document.querySelector('section:last-of-type > p');
             resultElement.textContent = `Neumaticos: ${tipoNeumatico}, vueltas: ${vueltas}, paradas en pits: ${this.calcularParadasPits(vueltas, tipoNeumatico)}, tiempo total estimado: ${tiempo} minutos.`;
 
-            var tituloResultado = document.querySelector('section > article > h2'); 
+            var tituloResultado = document.querySelector('section:last-of-type > h2'); 
             tituloResultado.textContent = `Analisis ${nombreEstrategia.value}`
         }
     }

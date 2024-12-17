@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS records;
+
+USE records;
+
+CREATE TABLE IF NOT EXISTS registro (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50) NOT NULL,
+    apellidos VARCHAR(50) NOT NULL,
+    nivel FLOAT NOT NULL,
+    tiempo INT NOT NULL
+);

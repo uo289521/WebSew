@@ -314,7 +314,7 @@
         public function esRentableEscuderiaEnCircuito($nombreCircuito, $nombreEscuderia)
         {
             echo "<article>"; 
-            echo "<h3> Balance </h3>"; 
+            echo "<h5> Balance </h5>"; 
             $numeroVueltas = $this->getNumeroVueltas($nombreCircuito);
             if($numeroVueltas != -1){
                 echo "<p> El numero de vueltas del circuito es de " . $numeroVueltas . ".</p>";
@@ -463,7 +463,7 @@
     <html lang="es">
 
     <head>
-        <!-- Datos que describen el documento -->
+  
         <meta charset="UTF-8" />
         <title>Formula1-Juegos</title>
         <meta name="author" content="David Rodriguez Chanca" />
@@ -492,20 +492,22 @@
                 <a class="active" href="../juegos.html" title="juegos">Juegos</a>
             </nav>
         </header>
-        <p>Estas en: <a href="../index.html" title="inicio">Inicio</a> >> <a href="../juegos.html" title="Juegos">Juegos</a>> JuegoPHP</p>
+        <p>Estas en: <a href="../index.html" title="inicio">Inicio</a> >> <a href="../juegos.html" title="Juegos">Juegos</a>>> Simulador economico php </p>
         <h2>Juegos sobre la Formula1</h2>
         <section>
-        <h3>Diferentes juegos de la Formula1: </h3>
+        <h3>Menu de juegos:  </h3>
         <nav>
             <p> <a href= "../memoria.html" title = "Juego memoria">Juego de memoria</a><p> 
             <p> <a href= "../semaforo.php" title = "Juego semaforo">Juego del semaforo</a></p>
-            <p> <a href= "../api.html" title = "API">Estregia circuitos (API)</a></p>
-            <p> <a href = "api.php" title = "Juego Php"> Juego php </a></p>
-        </nav>     
+            <p> <a href= "../api.html" title = "API">Estrategia circuitos (API)</a></p>
+            <p> <a href = "api.php" title = "Simulador economico php"> Simulador economico php </a></p>
+        </nav>
+
     </section>
-        <main>
+    <h2> Simulador economico php </h2>
+    <main>
             <section>
-                <h2>Circuito</h2>
+                <h4>Circuito</h4>
                 <form method="POST" enctype='multipart/form-data'>
                     <label for="csvCircuitoLighthouse">Selecciona un archivo CSV de Circuitos:</label>
                     <input type='file' name='circuito' id = "csvCircuitoLighthouse"/>
@@ -520,7 +522,7 @@
             </section>
 
             <section>
-                <h2>Empresa de Gasolina</h2>
+                <h4>Empresa de Gasolina</h4>
                 <form method="POST" enctype='multipart/form-data'>
                     <label for="csvEmpresaGasolinaLighthouse">Selecciona un archivo CSV de Empresas de Gasolina:</label>
                     <input type='file' name='empresaGasolina' id="csvEmpresaGasolinaLighthouse" />
@@ -534,7 +536,7 @@
             </section>
 
             <section>
-                <h2>Escudería</h2>
+                <h4>Escudería</h4>
                 <form method="POST" enctype='multipart/form-data'>
                     <label for="csvEscuderiaLighthouse">Selecciona un archivo CSV de Escuderías:</label>
                     <input type='file' name='escuderia' id="csvEscuderiaLighthouse" />
@@ -549,7 +551,7 @@
             </section>
 
             <section>
-                <h2>Patrocinador</h2>
+                <h4>Patrocinador</h4>
                 <form method="POST" enctype='multipart/form-data'>
                     <label for="csvPatrocinadorLighthouse">Selecciona un archivo CSV de Patrocinadores:</label>
                     <input type='file' name='patrocinador' id="csvPatrocinadorLighthouse" />
@@ -563,7 +565,7 @@
             </section>
 
             <section>
-                <h2>Coche F1</h2>
+                <h4>Coche F1</h4>
                 <form method="POST" enctype='multipart/form-data'>
                     <label for="csvF1Lighthouse">Selecciona un archivo CSV de Coches F1:</label>
                     <input type='file' name='f1' id="csvF1Lighthouse" />
@@ -575,9 +577,9 @@
                     <input type='submit' name='submitCochesF1csv' value='Exportar' id = "csvF1ExpLighthouse"/>
                 </form>
             </section>
-        </main>
+    </main>
         <section>
-            <h2>Verificar Rentabilidad</h2>
+            <h4>Verificar Rentabilidad</h4>
             <form method="POST">
                 <label>Nombre del Circuito:</label>
                 <input type="text"  name="nombreCircuito" placeholder="Ej: Silverstone    (Case Sensitive)" required>

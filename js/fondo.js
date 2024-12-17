@@ -31,5 +31,4 @@ class Fondo{
     }
 }
 
-var fondo = new Fondo("España", "Madrid", "Circuit de Catalunya"); 
-fondo.sacarfondo(); 
+var fondo = new Fondo("Spain", "Madrid", "Circuit de Catalunya"); 

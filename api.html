@@ -32,19 +32,30 @@
             <a class="active" href="juegos.html" title="juegos">Juegos</a>
         </nav>
     </header>
-    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a>> API
+    <p>Estas en: <a href="index.html" title="inicio">Inicio</a> >> <a href="juegos.html" title="Juegos">Juegos</a>>> Estrategia de circuito
     </p>
     <h2>Juegos sobre la Formula1</h2>
     <section>
-        <h3>Diferentes juegos de la Formula1: </h3>
+        <h3>Menu de juegos:  </h3>
         <nav>
             <p> <a href="memoria.html" title="Juego memoria">Juego de memoria</a></p>
             <p> <a href="semaforo.php" title="Juego semaforo">Juego del semaforo</a></p>
-            <p> <a href="api.html" title="API">Estregia circuitos (API)</a></p>
-            <p> <a href="php/api.php" title="Juego Php"> Juego php </a></p>
+            <p> <a href="api.html" title="API">Estrategia circuitos (API)</a></p>
+            <p> <a href="php/api.php" title="Simulador economico php"> Simulador economico php </a></p>
         </nav>
     </section>
-    <h2>Calculador de Estrategias de Carrera</h2>
+    <h2>Calculador de Estrategia de Circuito (API)</h2>
+    <section>
+        <h3>¿Como calculo una estrategia?</h3>
+        <p>Primero tendras que escoger el numero de vueltas que tiene tu circuito.</p>
+        <p>Despues tendras que arrastrar el tipo de neumático que quieres para la carrera, a la zona de estrategia.</p>
+        <p>¡Atencion despues de esto escucharas un sonido (Simulando el ruido del f1)!</p>
+        <p>Escoges un nombre para tu estrategia y simulas la carrera.</p>
+
+        <p>Podras cargar estrategias pasadas poniendo el nombre de la estrategia.</p>
+
+
+    </section>
     <section>
         <h2>Configuración</h2>
         <label for="vueltasCarrera-usabilidad">Vueltas de la carrera:</label>
@@ -74,28 +85,23 @@
         </picture>
     </section>
 
-    <main>
-        <article ondrop="p.handleDrop(event)" ondragover="p.drop(event)">
-            <h3>Zona de Estrategia</h3>
-            <p>Deberas arrastar aqui los neumaticos para escoger la estrategia</p>
-        </article>
+    <main ondrop="p.handleDrop(event)"  ondragover="p.drop(event)">
+        <h3>Zona de Estrategia</h3>
+        <p>Deberas arrastar aqui los neumaticos para escoger la estrategia</p>
         <label for="nombreEstrategia-usabilidad">Nombre de la estrategia:</label>
         <input type="text" id="nombreEstrategia-usabilidad" placeholder="Nombre de la estrategia" />
         <button onclick="p.simulateRace()" disabled>Simular carrera y guardar estrategia</button>
-
     </main>
 
-    <section>
-        <article>
-            <h2>Analisis</h2>
-            <p>Aqui se mostrara el resultado de la simulacion</p>
-        </article>
+    <section> 
+        <h2>Analisis</h2>
+        <p>Aqui se mostrara el resultado de la simulacion</p>      
     </section>
     <article>
         <h3>Administrar estrategias</h3>
         <button onclick="p.limpiarMemoria()" disabled>Limpiar memoria de estrategias</button>
         <label for="cargarEstrategia-usabilidad">Cargar estrategia:</label>
-        <input type="text" id="cargarEstrategia-usabilidad" placeholder="Nombre de la estrategia a cargar" />
+        <input type="text" id="cargarEstrategia-usabilidad" placeholder="Nombre que se guardo" />
         <button onclick="p.cargarEstrategiaAntigua()">Cargar estrategia</button>
     </article>
     <script src="js/api.js"></script>

@@ -5,6 +5,12 @@ class Circuito{
 
 
     leerArchivo(file) {
+
+        if ($('article').length === 0) {
+            $('input').first().after('<article></article>');
+        }
+
+
         var archivo = file[0];
         var datosMeta = `
             <p>Nombre del archivo: ${archivo.name}</p>
@@ -28,7 +34,10 @@ class Circuito{
                 });
                 var articulo =  document.querySelector("article"); 
                 var pree = document.createElement("pre"); 
+                var tituloArt = document.createElement("h3")
+                tituloArt.innerText = archivo.name; 
                 pree.innerText = acumulador; 
+                articulo.appendChild(tituloArt)
                 articulo.appendChild(pree)
                
             };
