@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es"><head>
   
     <meta charset="UTF-8">
@@ -40,7 +41,7 @@
     </nav>
 
 </section>
-<h2> Simulador economico php </h2>
+<h3> Simulador economico php </h3>
 <main>
         <section>
             <h4>Circuito</h4>
@@ -116,12 +117,12 @@
 </main>
     <section>
         <h4>Verificar Rentabilidad</h4>
-        <form method="POST">
-            <label>Nombre del Circuito:</label>
-            <input type="text" name="nombreCircuito" placeholder="Ej: Silverstone    (Case Sensitive)" required="">
+        <form method="POST" enctype="multipart/form-data">
+            <label for="nombreCircuitoLighthouse">Nombre del Circuito:</label>
+            <input type="text" name="nombreCircuito" id= "nombreCircuitoLighthouse"placeholder="Ej: Silverstone    (Case Sensitive)" required="">
 
-            <label>Nombre de la escuderia:</label>
-            <input type="text" name="nombreEmpresa" placeholder="Ej: Ferrari    (Case Sensitive)" required="">
+            <label for="nombreEscuderiaLighthouse">Nombre de la escuderia:</label>
+            <input type="text" name="nombreEmpresa" id= "nombreEscuderiaLighthouse" placeholder="Ej: Ferrari    (Case Sensitive)" required="">
 
             <input type="submit" name="verificarRentabilidad" value="Verificar Rentabilidad">
         </form>
